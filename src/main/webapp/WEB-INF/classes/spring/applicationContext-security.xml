@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+	<http>
+	
+		<intercept-url pattern="/login.html" filters="none" />		
+		<intercept-url pattern="/index.html" filters="none" />		
+<!--		<intercept-url pattern="/inicio.xml" access="ROLE_USER" />-->
+<!--		<intercept-url pattern="/usuarios/*.xml" access="ROLE_USER" />-->		
+		<intercept-url pattern="/error.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/*" access="ROLE_USER" />
+		<form-login login-page="/login.html" 
+			default-target-url="/index.xml"
+			authentication-failure-url="/index.xml"/>
+		<anonymous />
+		<http-basic />
+			<logout logout-success-url="/logout.html" />
+		<remember-me />
+	</http>
+
+	<authentication-provider user-service-ref="userService" />
+
+	<b:bean id="userService"
+		class="org.springframework.security.userdetails.jdbc.JdbcDaoImpl">
+		<b:property name="dataSource" ref="securityDataSource" />
+		<b:property name="enableGroups" value="true" />
+		<b:property name="enableAuthorities" value="true" />
+	</b:bean>
+
+	<b:bean id="securityDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<b:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<b:property name="url" value="jdbc:mysql://localhost:3306/public?autoReconnect=true" />
+		<b:property name="username" value="root" />
+		<b:property name="password" value="root" />
+	</b:bean>
+</b:beans>
