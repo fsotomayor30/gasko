@@ -8,8 +8,8 @@
 	
 		<intercept-url pattern="/login.html" filters="none" />		
 		<intercept-url pattern="/index.html" filters="none" />		
-<!--		<intercept-url pattern="/inicio.xml" access="ROLE_USER" />-->
-<!--		<intercept-url pattern="/usuarios/*.xml" access="ROLE_USER" />-->		
+  		<!--<intercept-url pattern="/indexUser.html" access="ROLE_USER" />-->
+		<!--<intercept-url pattern="/indexAdmin.html" access="ROLE_ADMIN" />-->	
 		<intercept-url pattern="/error.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/*" access="ROLE_USER" />
 		<form-login login-page="/login.html" 
@@ -33,8 +33,8 @@
 	<b:bean id="securityDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<b:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<b:property name="url" value="jdbc:mysql://localhost:3306/public?autoReconnect=true" />
+		<b:property name="url" value="jdbc:mysql://localhost:3306/public" />
 		<b:property name="username" value="root" />
-		<b:property name="password" value="root" />
+		<b:property name="password" value="bastian14" />
 	</b:bean>
 </b:beans>
