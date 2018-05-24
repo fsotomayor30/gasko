@@ -1,5 +1,22 @@
+<<<<<<< HEAD
 C:\proyectos\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\UsuarioService.java
 C:\proyectos\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\ServiceImpl.java
 C:\proyectos\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\UsuarioController.java
 C:\proyectos\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\InicioController.java
 C:\proyectos\gasko\src\main\java\com\usuario\empresa\web\administracion\entidades\Usuario.java
+=======
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\entidades\Pagar.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\entidades\Miembro.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\InicioController.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\entidades\Usuario.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\UsuarioService.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\UsuarioController.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\PagarService.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\ServiceImpl.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\MiembroController.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\MiembroService.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\servicios\GastoComunService.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\GastoComunController.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\entidades\GastoComun.java
+C:\Users\Felipe\Documents\GitHub\gasko\src\main\java\com\usuario\empresa\web\administracion\controladores\PagarController.java
+>>>>>>> 39ac01e38bde1422469c2991d30b39a555c9090b
