@@ -36,6 +36,6 @@
 		<b:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<b:property name="url" value="jdbc:mysql://localhost:3306/public" />
 		<b:property name="username" value="root" />
-		<b:property name="password" value="bastian14" />
+		<b:property name="password" value="root" />
 	</b:bean>
 </b:beans>
