@@ -5,11 +5,13 @@
     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd ">
 
 	<!-- the application context definition for the spring app DispatcherServlet -->
-	<bean name="/inicio.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
+	<bean name="/indexAdmin.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 	<bean name="/usuarios/listar.xml" 	class="com.usuario.empresa.web.administracion.controladores.UsuarioController" />
 	<bean name="/usuarios/ver.xml" 	class="com.usuario.empresa.web.administracion.controladores.UsuarioController" />
 	<bean name="/usuarios/pantallaInicioMiembro.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
-
+	<bean name="/indexUser.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
+	<bean name="/inicio.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true" />

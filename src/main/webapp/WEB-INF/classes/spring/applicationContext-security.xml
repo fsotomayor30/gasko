@@ -7,13 +7,14 @@
 	<http>
 	
 		<intercept-url pattern="/login.html" filters="none" />		
-		<intercept-url pattern="/index.html" filters="none" />		
-  		<!--<intercept-url pattern="/indexUser.html" access="ROLE_USER" />-->
-		<!--<intercept-url pattern="/indexAdmin.html" access="ROLE_ADMIN" />-->	
+		<intercept-url pattern="/index.html" filters="none" />	
+  	<!--<intercept-url pattern="/index.html" access="ROLE_USER" />-->	
+	<!--<intercept-url pattern="/indexAdmin.html" access="ROLE_ADMIN" />-->	
 		<intercept-url pattern="/error.html" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/*" access="ROLE_USER" />
+		<intercept-url pattern="/*" access="ROLE_USER,ROLE_ADMIN" />
+		<!--<intercept-url pattern="/*" access="ROLE_ADMIN" />-->	
 		<form-login login-page="/login.html" 
-			default-target-url="/indexUser.html"
+			default-target-url="/index.xml"
 			authentication-failure-url="/index.xml"/>
 		<anonymous />
 		<http-basic />

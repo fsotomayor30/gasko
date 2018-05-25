@@ -48,5 +48,9 @@
 
 	<bean id="gastosComunesService" class="com.usuario.empresa.web.administracion.servicios.GastoComunService">
 		<property name="sqlMapClient" ref="sqlMap" />
-	</bean>
+	</bean> 
+	
+	<bean id="iniciosService" class="com.usuario.empresa.web.administracion.servicios.InicioService">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean> 
 </beans>

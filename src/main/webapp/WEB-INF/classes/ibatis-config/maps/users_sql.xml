@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="usersResult">
+	<!-- resultmaps -->
+	<resultMap id="usersResult" class="com.usuario.empresa.web.administracion.entidades.Users">
+		<result property="username" 		column="USERNAME" />
+		<result property="password" 		column="PASSWORD" />
+		<result property="enabled" 			column="ENABLED" />
+		<result property="num_house" 		column="NUM_HOUSE" />
+		<result property="rol" 				column="ROL" />
+	</resultMap>
+
+	<!-- sqls -->
+	
+	<select id="getUsers" parameterClass="String" resultMap="usersResult">
+		SELECT C.USERNAME, C.PASSWORD, C.ENABLED, C.NUM_HOUSE, C.ROL
+		FROM USERS AS C
+		WHERE C.USERNAME=#value#;
+	</select>
+	
+</sqlMap>
