@@ -1,19 +1,19 @@
 package com.usuario.empresa.web.administracion.entidades;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Pagar {
 
     private int  id_pagar;
     private String estado;
     private Date fecha;
-    private int id_miembro;
+    private String username;
 
-    public Pagar(int id_pagar, String estado, Date fecha, int id_miembro) {
+    public Pagar(int id_pagar, String estado, Date fecha, String username) {
         this.id_pagar = id_pagar;
         this.estado = estado;
         this.fecha = fecha;
-        this.id_miembro = id_miembro;
+        this.username= username;
     }
 
     public Pagar() {
@@ -43,11 +43,11 @@ public class Pagar {
         this.fecha = fecha;
     }
 
-    public int getId_miembro() {
-        return id_miembro;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId_miembro(int id_miembro) {
-        this.id_miembro = id_miembro;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

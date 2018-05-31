@@ -5,4 +5,5 @@
 	<sqlMap resource="ibatis-config/maps/usuarios_sql.xml" />
 	<sqlMap resource="ibatis-config/maps/gastos_comunes_sql.xml" />
 	<sqlMap resource="ibatis-config/maps/users_sql.xml" />
+	<sqlMap resource="ibatis-config/maps/pagar_sql.xml" />
 </sqlMapConfig>

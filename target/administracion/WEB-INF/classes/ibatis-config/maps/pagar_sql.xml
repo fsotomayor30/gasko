@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="pagarsResult">
+    <!-- resultmaps -->
+    <resultMap id="pagarResult" class="com.usuario.empresa.web.administracion.entidades.Pagar">
+        <result property="id_pagar" 		column="ID_PAGAR" />
+        <result property="estado" 		    column="ESTADO" />
+        <result property="fecha" 			column="FECHA" />
+        <result property="username" 		column="USERNAME" />
+
+    </resultMap>
+
+    <select id="getPagos"  resultMap="pagarResult">
+        SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME
+        FROM PAGAR AS C;
+
+    </select>
+
+</sqlMap>

@@ -29,4 +29,12 @@ public class GastoComunService extends ServiceImpl{
     public GastoComun getGastoComun(Date fechaGastoComun) throws Exception {
         return (GastoComun) sqlMap.queryForObject("getGastoComun", fechaGastoComun);
     }
+
+    public List<GastoComun> getGCFechaDesde(String fechaGastoComun) throws Exception {
+        return (List<GastoComun>) sqlMap.queryForList("getGCFechaDesde",fechaGastoComun);
+    }
+
+    public List<GastoComun> getGCFechaHasta(String fechaGastoComun) throws Exception {
+        return (List<GastoComun>) sqlMap.queryForList("getGCFechaHasta",fechaGastoComun);
+    }
 }

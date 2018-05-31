@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.Authentication;
 import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.ui.logout.SecurityContextLogoutHandler;
 import org.springframework.security.userdetails.UserDetails;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,9 +45,9 @@ public class InicioController extends MultiActionController {
 		rol = objetoUsers.getRol();
 		
 		if(rol ==2) {
-			return new ModelAndView("indexAdmin");
+			return new ModelAndView("indexAdmin", "usuario", userDetails.getUsername());
 		}
-		return new ModelAndView("indexUser");
+		return new ModelAndView("indexUser", "usuario", userDetails.getUsername());
 	}
 
 }

@@ -19,4 +19,16 @@
         FROM GASTO_COMUN AS C
         WHERE C.FECHA=#value#;
     </select>
+    <select id="getGCFechaDesde" parameterClass="String" resultMap="gastoComunResult">
+        SELECT
+        C.FECHA, C.MONTO
+        FROM GASTO_COMUN AS C
+        WHERE C.FECHA&gt;#value#;
+    </select>
+    <select id="getGCFechaHasta" parameterClass="String" resultMap="gastoComunResult">
+        SELECT
+        C.FECHA, C.MONTO
+        FROM GASTO_COMUN AS C
+        WHERE C.FECHA&lt;#value#;
+    </select>
 </sqlMap>

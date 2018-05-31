@@ -9,9 +9,11 @@
 	<bean name="/usuarios/listar.xml" 	class="com.usuario.empresa.web.administracion.controladores.UsuarioController" />
 	<bean name="/usuarios/ver.xml" 	class="com.usuario.empresa.web.administracion.controladores.UsuarioController" />
 	<bean name="/usuarios/pantallaInicioMiembro.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/usuarios/buscarFecha.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/administradores/VerGCAdmin.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/indexUser.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 	<bean name="/inicio.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
-	
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true" />
