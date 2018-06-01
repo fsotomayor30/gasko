@@ -2,8 +2,23 @@
 <html>
 <head>
 	<title>Gastos comunes</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
+		
+		body::after {
+             content: "";
+             background: url(img/fondo.jpg);
+             background-size: cover;
+			 background-repeat: no-repeat;
+             top: 0;
+             left: 0;
+             bottom: 0;
+             right: 0;
+             position: absolute;
+             z-index: -1;   
+        }     
+
 		body {font-family: Arial, Helvetica, sans-serif;}
 		form {border: 3px solid #f1f1f1;}
 
@@ -70,7 +85,7 @@
 </head>
 <body onload="document.f.j_username.focus();">
 
-<h2>Login - Gastos Comunes</h2>
+<center><h1 style="color: white;size: 25px">Sistema de Gestión de Gastos Comunes</h1></center>
 
 <form name="f" action="j_spring_security_check" method="POST">
 	<div class="imgcontainer">
@@ -78,13 +93,13 @@
 	</div>
 
 	<div class="container">
-		<label for="j_username"><b>Username</b></label>
-		<input type="text" name='j_username' value='' placeholder="Enter Username" required>
+		<label for="j_username"><b style="color: white">Usuario</b></label>
+		<input type="text" name='j_username' value='' placeholder="Escriba su usuario" required>
 
-		<label for="j_password"><b>Password</b></label>
-		<input type='password' name='j_password' placeholder="Enter Password" required>
+		<label for="j_password"><b style="color: white">Contraseña</b></label>
+		<input type='password' name='j_password' placeholder="Escriba su contraseña" required>
 
-		<button type="submit" name="submit">Login</button>
+		<button type="submit" name="submit">Ingresar</button>
 
 	</div>
 </form>

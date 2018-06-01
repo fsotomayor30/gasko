@@ -1,33 +1,37 @@
 [#include "common.ftl" /] [@structure]
+       
+<head><meta charset="UTF-8"></head>       
+        <body background="img/admin.png">
 <br></br>
         <div class="row">
-            <div class="col-md-10 offset-md-1"> <div class="card">
+            <div class="col-md-6 offset-md-1" style="margin-left: auto; margin-right: auto;"> <div class="card" style="background: #EAEAEA">
                 <br></br>
                 <center><h1></span>Bienvenido al sistema de gastos comunes ${usuario}</h1>
-                    <h2>Modo administrador</h2>
+                     <br></br>
                 </center>
-
-                    <center>
-                        <a href="#" class="btn btn-primary">Ingreso Cuenta de gasto común</a>
-                    </center>
-                    <br></br>
+                
                 <center>
-                    <a href="#" class="btn btn-primary">Modificar Cuenta de gasto común</a>
+                    <a href="#" class="btn btn-primary btn-lg btn-block">Ingresar Cuenta de gasto común</a>
                 </center>
                 <br></br>
                 <center>
-                    <a href="#" class="btn btn-primary">Eliminar Cuenta de gasto común</a>
+                    <a href="#" class="btn btn-primary btn-lg btn-block">Modificar Cuenta de gasto común</a>
                 </center>
                 <br></br>
                 <center>
-                    <a href="administradores/VerGCAdmin.xml" class="btn btn-primary">Visualizar  Cuenta de gasto común</a>
+                    <a href="#" class="btn btn-primary btn-lg btn-block">Eliminar Cuenta de gasto común</a>
                 </center>
                 <br></br>
                 <center>
-                    <a href="#" class="btn btn-primary">Ingresar Pago de gasto comun</a>
+                    <a href="administradores/VerGCAdmin.xml" class="btn btn-primary btn-lg btn-block">Visualizar  Cuenta de gasto común</a>
                 </center>
                 <br></br>
-
+                <center>
+                    <a href="#" class="btn btn-primary btn-lg btn-block">Ingresar Pago de gasto común</a>
+                </center>
+               
+                <br></br>
             </div>
-            </div>
+        </div> 
+    </div>
 [/@structure]
