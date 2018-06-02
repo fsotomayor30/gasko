@@ -23,7 +23,7 @@
                     </div>
                     <center>
                         <input type="submit" class="btn btn-primary" value="Buscar">
-                        <a href="pantallaInicioMiembro.xml" class="btn btn-primary">Reestablecer</a>
+                        <a href="VerGCAdmin.xml" class="btn btn-primary">Reestablecer</a>
                     </center>
 </form>
                         <br></br>

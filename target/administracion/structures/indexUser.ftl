@@ -1,10 +1,11 @@
 [#include "common.ftl" /] [@structure]
+	<body background="img/admin.png">
 <br></br>
         <div class="row">
-            <div class="col-md-10 offset-md-1"> <div class="card">
+            <div class="col-md-10 offset-md-1"> <div class="card" style="background: #EAEAEA">
                 <br></br>
                 <center><h1></span>Bienvenido al sistema de gastos comunes ${usuario}</h1>
-                <h2>Modo usuario</h2>
+                <br></br>
                 </center>
 
 
@@ -13,7 +14,7 @@
                     </center>
                     <br></br>
 
-
+				</div>
             </div>
             </div>
 [/@structure]
