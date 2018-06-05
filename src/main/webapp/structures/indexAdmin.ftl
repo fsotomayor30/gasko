@@ -1,35 +1,45 @@
 [#include "common.ftl" /] [@structure]
-       
+
 <head><meta charset="UTF-8"></head>       
         <body background="/administracion/img/admin.png">
+        <br></br>
+
+        <nav class="navbar navbar-light bg-light">
+  <span style="text-align:center" class="navbar-text">
+    Bienvenido al Sistema de Gestion de Gastos Comunes - Modo administrador - En sesión: ${usuario}
+  </span>
+            <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
+        </nav>
 <br></br>
         <div class="row">
-            <div class="col-md-6 offset-md-1" style="margin-left: auto; margin-right: auto;"> <div class="card" style="background: #EAEAEA">
+            <div class="col-md-12" style="margin-left: auto; margin-right: auto;">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.5);">
                 <br></br>
-                <center><h1></span>Bienvenido al sistema de gastos comunes ${usuario}</h1>
-                     <br></br>
-                </center>
-                
-                <center>
+                <div class="row">
+                <div class="col-md-6">
                     <a  href="/administracion/administradores/IngresoGC.xml" class="btn btn-primary btn-lg btn-block">Ingresar Cuenta de gasto común</a>
-                </center>
-                <br></br>
-                <center>
+                </div>
+
+                <div class="col-md-6">
                     <a href="#" class="btn btn-primary btn-lg btn-block">Modificar Cuenta de gasto común</a>
-                </center>
+                </div>
+                </div>
                 <br></br>
-                <center>
+                <div class="row">
+                <div class="col-md-6">
                     <a href="#" class="btn btn-primary btn-lg btn-block">Eliminar Cuenta de gasto común</a>
-                </center>
+                </div>
                 <br></br>
-                <center>
+                <div class="col-md-6">
                     <a href="/administracion/administradores/VerGCAdmin.xml" class="btn btn-primary btn-lg btn-block">Visualizar  Cuenta de gasto común</a>
-                </center>
+                </div>
+                </div>
                 <br></br>
-                <center>
+                <div class="row">
+                <div class="col-md-6">
                     <a href="#" class="btn btn-primary btn-lg btn-block">Ingresar Pago de gasto común</a>
-                </center>
-               
+                </div>
+                </div>
                 <br></br>
             </div>
         </div> 

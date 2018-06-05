@@ -73,6 +73,7 @@ public class GastoComunController extends MultiActionController {
 
         ModelAndView modelAndView=new ModelAndView("usuarios/pantallaInicioMiembro");
         modelAndView.addObject("gastosComunes",listaGastosComunesResultantes);
+        modelAndView.addObject("usuario",userDetails.getUsername());
         modelAndView.addObject("pagos",listaPagosResultantes);
         return modelAndView;
     }
@@ -121,6 +122,7 @@ public class GastoComunController extends MultiActionController {
 
         ModelAndView modelAndView=new ModelAndView("usuarios/pantallaInicioMiembro");
         modelAndView.addObject("gastosComunes",listaGastosComunesResultantes);
+        modelAndView.addObject("usuario",userDetails.getUsername());
         modelAndView.addObject("pagos",listaPagosResultantes);
         return modelAndView;
 
@@ -136,13 +138,19 @@ public class GastoComunController extends MultiActionController {
         pgadmin=serviceP.getPagos();
 
         ModelAndView modelAndView=new ModelAndView("administradores/VerGCAdmin");
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails=(UserDetails) auth.getPrincipal();
+        modelAndView.addObject("usuario",userDetails.getUsername());
         modelAndView.addObject("gastosComunes",gcadmin);
         modelAndView.addObject("pagos",pgadmin);
         return modelAndView;
     }
 
     public ModelAndView IngresoGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails=(UserDetails) auth.getPrincipal();
         ModelAndView modelAndView=new ModelAndView("administradores/IngresoGC");
+        modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
     }
 

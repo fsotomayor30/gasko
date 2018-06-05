@@ -1,5 +1,14 @@
 [#include "../common.ftl" /] [@structure]
-<body background="../img/admin.png">
+<body background="/administracion/img/admin.png">
+<br></br>
+
+<nav class="navbar navbar-light bg-light">
+  <span style="text-align:center" class="navbar-text">
+    Bienvenido al Sistema de Gestion de Gastos Comunes - Modo usuario - En sesión: ${usuario}
+  </span>
+    <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
+</nav>
+
 <br></br>
 <form action="buscarFecha.xml" method="POST">
     <div class="row">
@@ -53,6 +62,9 @@
                             </table>
                         </div>
                     </div>
+<center>
+<a href="/administracion/indexUser.xml" class="btn btn-success">Volver</a>
+</center>
                 </div>
             </div>
 

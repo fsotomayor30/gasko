@@ -1,19 +1,25 @@
 [#include "common.ftl" /] [@structure]
 	<body background="/administracion/img/admin.png">
+    <br></br>
+
+    <nav class="navbar navbar-light bg-light">
+  <span style="text-align:center" class="navbar-text">
+    Bienvenido al Sistema de Gestion de Gastos Comunes - Modo usuario - En sesión: ${usuario}
+  </span>
+        <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
+    </nav>
+
 <br></br>
         <div class="row">
-            <div class="col-md-10 offset-md-1"> <div class="card" style="background: #EAEAEA">
+            <div class="col-md-12" style="margin-left: auto; margin-right: auto;">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.5);">
                 <br></br>
-                <center><h1></span>Bienvenido al sistema de gastos comunes ${usuario}</h1>
-                <br></br>
-                </center>
-
-
-                    <center>
-                        <a href="/administracion/usuarios/pantallaInicioMiembro.xml" class="btn btn-primary">Visualizar Gastos Comunes</a>
-                    </center>
+                    <div class="row">
+                <div class="col-md-12">
+                        <a href="/administracion/usuarios/pantallaInicioMiembro.xml" class="btn btn-primary btn-lg btn-block">Visualizar Gastos Comunes</a>
+                    </div>
+                    </div>
                     <br></br>
-
 				</div>
             </div>
             </div>
