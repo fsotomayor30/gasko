@@ -39,17 +39,19 @@
 
 
                     [#list gastosComunes as gastoComun]
-    <tr>
+
         [#list pagos as pago]
             [#if gastoComun.fecha == pago.fecha ]
-        <td>${pago.username}</td>
+            <tr>
+                <td>${pago.username}</td>
             <td>${pago.estado}</td>
+            <td>${gastoComun.monto}</td>
+            <td>${gastoComun.fecha}</td>
+            </tr>
             [/#if]
         [/#list]
-        <td>${gastoComun.monto}</td>
 
-        <td>${gastoComun.fecha}</td>
-    </tr>
+
                     [/#list]
 
 
@@ -60,10 +62,12 @@
 
     <a href="#" class="btn btn-primary">Exportar Excel</a>
     <a href="#" class="btn btn-primary">Exportar PDF</a>
+    <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
 </center>
                 </div>
 
             </div>
 
         </div>
+<br></br>
 [/@structure]

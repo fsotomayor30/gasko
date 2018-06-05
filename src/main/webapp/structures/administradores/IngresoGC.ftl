@@ -1,0 +1,34 @@
+[#include "../common.ftl" /] [@structure]
+<body background="../img/admin.png">
+<br></br>
+<form action="ingresoGCE.xml" method="POST">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card" style="background: #EAEAEA">
+                <center><h1></span>Ingreso Gasto Comun</h1></center>
+
+                <div class="card-body">
+
+                    <div class="form-group row">
+
+                        <div class="col-12">
+                            <span class="oi oi-calendar"></span>
+                            <label for="date" class="col-2 col-form-label">Fecha:</label>
+                            <input class="form-control" type="date" value="2011-08-19" id="date" name="date">
+                        </div>
+
+                        <div class="col-12">
+                            <span class="oi oi-dollar"></span>
+                            <label for="monto" class="col-2 col-form-label">Monto:</label>
+                            <input class="form-control" type="number" value="42" id="monto" name="monto">
+                        </div>
+                    </div>
+                    <center>
+                        <input type="submit" class="btn btn-primary" value="Ingresar G.C">
+                        <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
+                    </center>
+                    <br></br>
+
+                </div>
+            </div>
+[/@structure]

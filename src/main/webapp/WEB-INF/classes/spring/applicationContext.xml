@@ -33,7 +33,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/public" />
 		<property name="username" value="root" />
-		<property name="password" value="bastian14" />
+		<property name="password" value="root" />
 	</bean>
 
 	<bean id="sqlMap" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">

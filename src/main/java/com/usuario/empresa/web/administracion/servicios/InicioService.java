@@ -10,5 +10,13 @@ public class InicioService extends ServiceImpl{
 
 	public Users getUsers(String username) throws Exception {
 		return (Users) sqlMap.queryForObject("getUsers", username);
-	} 
+	}
+
+	public int getTotalUsuariosNormales() throws Exception {
+		return (Integer) sqlMap.queryForObject("getTotalUsuariosNormales");
+	}
+
+	public List<Users> getUsersUsuarioNormal() throws Exception {
+		return (List<Users>) sqlMap.queryForList("getUsersNormales");
+	}
 }

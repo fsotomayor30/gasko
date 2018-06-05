@@ -8,24 +8,12 @@ import java.util.List;
 
 public class GastoComunService extends ServiceImpl{
 
-    /**
-     * Retorna la lista de gastos comunes
-     *
-     * @return lista de gastos comunes
-     * @throws Exception
-     */
+
     @SuppressWarnings("unchecked")
     public List<GastoComun> getGastosComunes() throws Exception {
         return (List<GastoComun>) sqlMap.queryForList("getGastosComunes");
     }
 
-    /**
-     * Retorna un gastoC comun dado su correspondiente fecha
-     *
-     * @param fechaGastoComun
-     * @return gastoComun
-     * @throws Exception
-     */
     public GastoComun getGastoComun(Date fechaGastoComun) throws Exception {
         return (GastoComun) sqlMap.queryForObject("getGastoComun", fechaGastoComun);
     }
@@ -37,4 +25,10 @@ public class GastoComunService extends ServiceImpl{
     public List<GastoComun> getGCFechaHasta(String fechaGastoComun) throws Exception {
         return (List<GastoComun>) sqlMap.queryForList("getGCFechaHasta",fechaGastoComun);
     }
+
+    public void insertGC(GastoComun gastoComun) throws Exception {
+        sqlMap.insert("insertGC", gastoComun);
+    }
+
+
 }

@@ -13,7 +13,12 @@
     <select id="getPagos"  resultMap="pagarResult">
         SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME
         FROM PAGAR AS C;
-
     </select>
+
+    <insert id="insertPago" parameterClass="com.usuario.empresa.web.administracion.entidades.Pagar">
+        INSERT pagar (ESTADO, FECHA, USERNAME)
+        VALUES (#estado#, #fecha#, #username#);
+    </insert>
+
 
 </sqlMap>

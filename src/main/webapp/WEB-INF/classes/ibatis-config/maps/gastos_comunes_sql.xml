@@ -31,4 +31,10 @@
         FROM GASTO_COMUN AS C
         WHERE C.FECHA&lt;#value#;
     </select>
+
+    <insert id="insertGC" parameterClass="com.usuario.empresa.web.administracion.entidades.GastoComun">
+        INSERT gasto_comun (FECHA, MONTO)
+        VALUES (#fecha#, #monto#);
+    </insert>
+
 </sqlMap>

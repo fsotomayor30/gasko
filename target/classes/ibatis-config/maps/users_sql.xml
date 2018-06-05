@@ -17,5 +17,19 @@
 		FROM USERS AS C
 		WHERE C.USERNAME=#value#;
 	</select>
+
+	<select id="getTotalUsuariosNormales" resultClass="java.lang.Integer">
+		SELECT COUNT(*) AS TOTAL
+		FROM USERS AS C
+		WHERE C.ROL=1;
+	</select>
+
+
+	<select id="getUsersNormales" resultMap="usersResult">
+		SELECT C.USERNAME, C.PASSWORD, C.ENABLED, C.NUM_HOUSE, C.ROL
+		FROM USERS AS C
+		WHERE C.ROL=1;
+	</select>
+
 	
 </sqlMap>

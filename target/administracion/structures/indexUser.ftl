@@ -1,5 +1,5 @@
 [#include "common.ftl" /] [@structure]
-	<body background="img/admin.png">
+	<body background="/administracion/img/admin.png">
 <br></br>
         <div class="row">
             <div class="col-md-10 offset-md-1"> <div class="card" style="background: #EAEAEA">
@@ -10,7 +10,7 @@
 
 
                     <center>
-                        <a href="usuarios/pantallaInicioMiembro.xml" class="btn btn-primary">Visualizar Gastos Comunes</a>
+                        <a href="/administracion/usuarios/pantallaInicioMiembro.xml" class="btn btn-primary">Visualizar Gastos Comunes</a>
                     </center>
                     <br></br>
 

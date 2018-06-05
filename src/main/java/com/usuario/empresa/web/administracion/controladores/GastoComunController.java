@@ -2,18 +2,22 @@ package com.usuario.empresa.web.administracion.controladores;
 
 import com.usuario.empresa.web.administracion.entidades.GastoComun;
 import com.usuario.empresa.web.administracion.entidades.Pagar;
+import com.usuario.empresa.web.administracion.entidades.Users;
 import com.usuario.empresa.web.administracion.servicios.GastoComunService;
+import com.usuario.empresa.web.administracion.servicios.InicioService;
 import com.usuario.empresa.web.administracion.servicios.PagarService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.Authentication;
 import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.userdetails.User;
 import org.springframework.security.userdetails.UserDetails;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +28,7 @@ public class GastoComunController extends MultiActionController {
 
     private GastoComunService serviceGC = null;
     private PagarService serviceP = null;
+    private InicioService serviceU=null;
     private ApplicationContext ctx = null;
     private String usuario;
 
@@ -40,6 +45,7 @@ public class GastoComunController extends MultiActionController {
                 "classpath:/spring/applicationContext.xml");
         serviceGC = (GastoComunService) ctx.getBean("gastosComunesService");
         serviceP = (PagarService) ctx.getBean("pagosService");
+        serviceU=(InicioService) ctx.getBean("iniciosService");
     }
 
 
@@ -134,5 +140,30 @@ public class GastoComunController extends MultiActionController {
         modelAndView.addObject("pagos",pgadmin);
         return modelAndView;
     }
+
+    public ModelAndView IngresoGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        ModelAndView modelAndView=new ModelAndView("administradores/IngresoGC");
+        return modelAndView;
+    }
+
+    public ModelAndView ingresoGCE(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails=(UserDetails) auth.getPrincipal();
+        List<Users> listaUsuariosNormal=serviceU.getUsersUsuarioNormal();
+        String montoS=request.getParameter("monto");
+        int monto=Integer.valueOf(montoS);
+        String fecha=request.getParameter("date");
+        int cantidadUsuarios=serviceU.getTotalUsuariosNormales();
+        Date fechaI=java.sql.Date.valueOf(fecha);
+        serviceGC.insertGC(new GastoComun(fechaI,(monto/cantidadUsuarios)));
+        for (Users user:listaUsuariosNormal) {
+            serviceP.insertPago(new Pagar("pendiente de pago", fechaI, user.getUsername()));
+        }
+
+        ModelAndView modelAndView=new ModelAndView("indexAdmin");
+        modelAndView.addObject("usuario",userDetails.getUsername());
+        return modelAndView;
+    }
+
 
 }

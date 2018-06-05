@@ -20,5 +20,8 @@ public class PagarService extends ServiceImpl{
         return (Pagar) sqlMap.queryForObject("getPagosPorFecha", fechaPago);
     }
 
+    public void insertPago(Pagar pago) throws Exception {
+        sqlMap.insert("insertPago", pago);
+    }
 
 }

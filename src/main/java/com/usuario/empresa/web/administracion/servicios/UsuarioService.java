@@ -18,7 +18,7 @@ public class UsuarioService extends ServiceImpl {
 
 	/**
 	 * Retorna un usuario dado su correspondiente id
-	 * 
+	 *
 	 * @param idUsuario
 	 *            - id del usuario
 	 * @return usuario
@@ -30,7 +30,7 @@ public class UsuarioService extends ServiceImpl {
 
 	/**
 	 * Retorna la cantidad total de usuarios
-	 * 
+	 *
 	 * @return cantidad de usuarios
 	 * @throws Exception
 	 */
@@ -64,7 +64,7 @@ public class UsuarioService extends ServiceImpl {
 	/**
 	 * Eliminar usuario
 	 * 
-	 * @param id
+	 * @param idz
 	 *            del usuario
 	 * @throws Exception
 	 */

@@ -9,8 +9,7 @@ public class Pagar {
     private Date fecha;
     private String username;
 
-    public Pagar(int id_pagar, String estado, Date fecha, String username) {
-        this.id_pagar = id_pagar;
+    public Pagar(String estado, Date fecha, String username) {
         this.estado = estado;
         this.fecha = fecha;
         this.username= username;

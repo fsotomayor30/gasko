@@ -11,6 +11,8 @@
 	<bean name="/usuarios/pantallaInicioMiembro.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/usuarios/buscarFecha.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/VerGCAdmin.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/administradores/ingresoGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/administradores/IngresoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/indexUser.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 	<bean name="/inicio.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 
