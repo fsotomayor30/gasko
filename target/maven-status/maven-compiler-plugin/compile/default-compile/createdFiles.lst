@@ -1,4 +1,5 @@
 com\usuario\empresa\web\administracion\controladores\PagarController.class
+com\usuario\empresa\web\administracion\controladores\ErrorController.class
 com\usuario\empresa\web\administracion\controladores\GastoComunController.class
 com\usuario\empresa\web\administracion\entidades\GastoComun.class
 com\usuario\empresa\web\administracion\controladores\UsuarioController.class

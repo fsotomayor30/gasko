@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <a href="#" class="btn btn-primary btn-lg btn-block">Modificar Cuenta de gasto común</a>
+                    <a href="/administracion/administradores/modificarGC.xml" class="btn btn-primary btn-lg btn-block">Modificar Cuenta de gasto común</a>
                 </div>
                 </div>
                 <br></br>

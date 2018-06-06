@@ -21,13 +21,13 @@
                         <div class="col-12">
                             <span class="oi oi-calendar"></span>
                             <label for="date" class="col-2 col-form-label">Fecha:</label>
-                            <input class="form-control" type="date" value="2011-08-19" id="date" name="date">
+                            <input class="form-control" type="date" value="2018-06-06" id="date" name="date">
                         </div>
 
                         <div class="col-12">
                             <span class="oi oi-dollar"></span>
                             <label for="monto" class="col-2 col-form-label">Monto:</label>
-                            <input class="form-control" type="number" value="42" id="monto" name="monto">
+                            <input class="form-control" type="number" value="0" id="monto" name="monto">
                         </div>
                     </div>
                     <center>
@@ -35,7 +35,5 @@
                         <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
                     </center>
                     <br></br>
-
-                </div>
             </div>
 [/@structure]
