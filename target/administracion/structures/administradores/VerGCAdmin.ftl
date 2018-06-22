@@ -3,6 +3,7 @@
 <br></br>
 <nav class="navbar navbar-light bg-light">
   <span style="text-align:center" class="navbar-text">
+  <!--${usuario} es el username con el cual se inicio sesion, este se obtiene en el controlador "GastoComunController", especificamente del metodo VerGCAdmin-->
     Bienvenido al Sistema de Gestion de Gastos Comunes - Modo administrador - En sesión: ${usuario}
   </span>
     <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
@@ -38,16 +39,17 @@
                             <table class="table table-striped">
 
                                 <tr>
-                                    <th scope="col">Username Miembro</th>
+                                    <th scope="col">Nombre del miembro</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Monto</th>
                                     <th scope="col">Fecha</th>
                                 </tr>
-
-
+<!--las listas se obtuvieron del controlador "GastoComunController", especificamente del metodo VerGCAdmin--->
+<!-- los list funcionan como for, por cada elemento de la lista gastosComunes hago una iteracion-->
                     [#list gastosComunes as gastoComun]
-
+<!--por cada elemento de la lista pagos hago una iteracion-->
         [#list pagos as pago]
+        <!--si la fecha del gastoComun se igual a una fecha de pago, lleno una tupla de la tabla a mostrar en la vista-->
             [#if gastoComun.fecha == pago.fecha ]
             <tr>
                 <td>${pago.username}</td>

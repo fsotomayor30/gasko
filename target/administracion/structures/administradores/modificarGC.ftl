@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
+                <br></br>
                 <center>
-
                     <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
                 </center>
                 <center><h1>Estamos trabajando para ud.</h1></center>

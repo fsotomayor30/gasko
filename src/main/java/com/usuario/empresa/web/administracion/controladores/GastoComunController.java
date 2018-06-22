@@ -128,19 +128,28 @@ public class GastoComunController extends MultiActionController {
 
     }
 
+    //Creo y cargo dos listas, una con objetos de la clase GastoComun y otra con objetos de la clase Pagar, tambien obtengo el username que se utilizo para iniciar sesion. Luego envio los datos mencionados anteriormente a la vista VerGCAdmin
     public ModelAndView VerGCAdmin(HttpServletRequest request,HttpServletResponse response) throws Exception {
         List <GastoComun> gcadmin=new ArrayList<GastoComun>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto común" y luego vuelvo a entrar, no se dupliquen los datos de la lista gcadmin
         gcadmin.clear();
         List<Pagar> pgadmin=new ArrayList<Pagar>();
+      //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto común" y luego vuelvo a entrar, no se dupliquen los datos de la lista pgadmin
         pgadmin.clear();
-
+        
+        //lleno ambas listas con la lista entregada por cada servicio
         gcadmin=serviceGC.getGastosComunes();
         pgadmin=serviceP.getPagos();
 
+        //defino la vista VerGCAdmin para entregarle las listas de gastos comunes y pagos posteriormente
         ModelAndView modelAndView=new ModelAndView("administradores/VerGCAdmin");
+        
+        //obtengo el username con el cual inicio sesion
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
+        //le paso el username a la vista VerGCAdmin para que pueda utilizarlo
         modelAndView.addObject("usuario",userDetails.getUsername());
+        //le paso ambas listas a la vista VerGCAdmin para que pueda utilizarlas 
         modelAndView.addObject("gastosComunes",gcadmin);
         modelAndView.addObject("pagos",pgadmin);
         return modelAndView;
@@ -157,13 +166,16 @@ public class GastoComunController extends MultiActionController {
     public ModelAndView ingresoGCE(HttpServletRequest request,HttpServletResponse response) throws Exception {
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
+        //creo una lista con objetos de la clase Users y la lleno con el servicio getUsersUsuarioNormal() el cual obtiene una lista de objetos Users preguntando a la BD por las tuplas Users con rol 1 (osea obtiene todos los miembros de la tabla Users, no toma encuenta las tuplas con rol 2 de administrador)
         List<Users> listaUsuariosNormal=serviceU.getUsersUsuarioNormal();
         String montoS=request.getParameter("monto");
         int monto=Integer.valueOf(montoS);
         String fecha=request.getParameter("date");
         int cantidadUsuarios=serviceU.getTotalUsuariosNormales();
         Date fechaI=java.sql.Date.valueOf(fecha);
+        //el monto ingresado en la vista se divide por la cantidad de usuarios con rol 1 de la tabla Users, el monto dividido es el que queda registrado en la tabla gasto_comun
         serviceGC.insertGC(new GastoComun(fechaI,(monto/cantidadUsuarios)));
+        //Por cada usuario con rol 1 en la tabla Users, el servicio insertPago inserta una tupla a la tabla pagar con el estado "pendiente de pago" por defecto, 
         for (Users user:listaUsuariosNormal) {
             serviceP.insertPago(new Pagar("pendiente de pago", fechaI, user.getUsername()));
         }

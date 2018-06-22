@@ -8,6 +8,7 @@
     </resultMap>
 
     <!-- sqls -->
+    <!-- Obtiene la fecha y monto de la tabla GASTO_COMUN de la BD alojada en mysql -->
     <select id="getGastosComunes" resultMap="gastoComunResult">
         SELECT C.FECHA, C.MONTO
         FROM GASTO_COMUN AS C

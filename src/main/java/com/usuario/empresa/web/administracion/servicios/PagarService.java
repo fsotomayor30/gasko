@@ -11,6 +11,7 @@ public class PagarService extends ServiceImpl{
 
 
     @SuppressWarnings("unchecked")
+  //devuelve una lista compuesta por objetos de la clase Pagar, esta lista la obtiene de la consulta getPagos de Ibatis
     public List<Pagar> getPagos() throws Exception {
         return (List<Pagar>) sqlMap.queryForList("getPagos");
     }

@@ -10,6 +10,7 @@ public class GastoComunService extends ServiceImpl{
 
 
     @SuppressWarnings("unchecked")
+    //devuelve una lista compuesta por objetos de la clase GastoComun, esta lista la obtiene de la consulta getGastosComunes de Ibatis
     public List<GastoComun> getGastosComunes() throws Exception {
         return (List<GastoComun>) sqlMap.queryForList("getGastosComunes");
     }
