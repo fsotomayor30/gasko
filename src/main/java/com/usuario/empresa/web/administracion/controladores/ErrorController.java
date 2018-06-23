@@ -8,8 +8,5 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ErrorController extends MultiActionController {
 
-    public ModelAndView modificarGC(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView modelAndView=new ModelAndView("administradores/modificarGC");
-        return modelAndView;
-    }
+
 }

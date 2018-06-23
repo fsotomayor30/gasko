@@ -20,5 +20,15 @@
         VALUES (#estado#, #fecha#, #username#);
     </insert>
 
+    <update id="updatePago" parameterClass="com.usuario.empresa.web.administracion.entidades.Pagar">
+        UPDATE pagar SET ESTADO=#estado#
+        WHERE FECHA=#fecha# AND USERNAME=#username#;
+    </update>
+
+    <delete id="deletePago" parameterClass="com.usuario.empresa.web.administracion.entidades.Pagar">
+        DELETE FROM pagar
+        WHERE FECHA=#fecha# AND USERNAME=#username#;
+    </delete>
+
 
 </sqlMap>

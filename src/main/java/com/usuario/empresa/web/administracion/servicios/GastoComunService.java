@@ -30,5 +30,12 @@ public class GastoComunService extends ServiceImpl{
         sqlMap.insert("insertGC", gastoComun);
     }
 
+    public void updateGC(GastoComun gc) throws Exception {
+        sqlMap.update("updateGC", gc);
+    }
+    public void deleteGC(String fecha) throws Exception {
+        sqlMap.delete("deleteGC", fecha);
+    }
+
 
 }

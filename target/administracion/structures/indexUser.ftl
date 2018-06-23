@@ -14,8 +14,8 @@
             <div class="col-md-12" style="margin-left: auto; margin-right: auto;">
                 <div class="card" style="background-color: rgba(255, 255, 255, 0.5);">
                 <br></br>
-                    <div class="row">
-                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                <div class="col-6">
                         <a href="/administracion/usuarios/pantallaInicioMiembro.xml" class="btn btn-primary btn-lg btn-block">Visualizar Gastos Comunes</a>
                     </div>
                     </div>

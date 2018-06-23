@@ -20,9 +20,9 @@
                     <a  href="/administracion/administradores/IngresoGC.xml" class="btn btn-primary btn-lg btn-block">Ingresar Cuenta de gasto común</a>
                 </div>
 
-                <div class="col-md-6">
-                    <a href="/administracion/administradores/modificarGC.xml" class="btn btn-primary btn-lg btn-block">Modificar Cuenta de gasto común</a>
-                </div>
+                    <div class="col-md-6">
+                        <a href="/administracion/administradores/PagoGC.xml" class="btn btn-primary btn-lg btn-block">Ingresar Pago de gasto común</a>
+                    </div>
                 </div>
                 <br></br>
                 <div class="row">
@@ -35,11 +35,7 @@
                 </div>
                 </div>
                 <br></br>
-                <div class="row">
-                <div class="col-md-6">
-                    <a href="#" class="btn btn-primary btn-lg btn-block">Ingresar Pago de gasto común</a>
-                </div>
-                </div>
+
                 <br></br>
             </div>
         </div> 

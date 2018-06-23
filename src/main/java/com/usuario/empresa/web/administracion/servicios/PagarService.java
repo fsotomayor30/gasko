@@ -1,6 +1,7 @@
 package com.usuario.empresa.web.administracion.servicios;
 
 
+import com.usuario.empresa.web.administracion.entidades.GastoComun;
 import com.usuario.empresa.web.administracion.entidades.Pagar;
 
 
@@ -24,4 +25,11 @@ public class PagarService extends ServiceImpl{
         sqlMap.insert("insertPago", pago);
     }
 
+    public void updatePago(Pagar pago) throws Exception {
+        sqlMap.update("updatePago", pago);
+    }
+
+    public void deletePago(Pagar pago) throws Exception {
+        sqlMap.delete("deletePago", pago);
+    }
 }

@@ -43,6 +43,7 @@
                                     <th scope="col">Fecha</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Monto</th>
+                                    <th scope="col">Descripcion</th>
                                 </tr>
 
 
@@ -55,6 +56,7 @@
                             [/#if]
                         [/#list]
         <td>${gastoComun.monto}</td>
+        <td>${gastoComun.descripcion}</td>
     </tr>
                     [/#list]
 

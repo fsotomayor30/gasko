@@ -5,36 +5,46 @@
     <resultMap id="gastoComunResult" class="com.usuario.empresa.web.administracion.entidades.GastoComun">
         <result property="fecha" 		column="FECHA" />
         <result property="monto" 	column="MONTO" />
+        <result property="descripcion" column="DESCRIPCION" />
     </resultMap>
 
     <!-- sqls -->
     <select id="getGastosComunes" resultMap="gastoComunResult">
-        SELECT C.FECHA, C.MONTO
+        SELECT C.FECHA, C.MONTO, C.DESCRIPCION
         FROM GASTO_COMUN AS C
         ORDER BY C.FECHA;
     </select>
     <select id="getGastoComun" parameterClass="date" resultMap="gastoComunResult">
         SELECT
-        C.FECHA, C.MONTO
+        C.FECHA, C.MONTO, C.DESCRIPCION
         FROM GASTO_COMUN AS C
         WHERE C.FECHA=#value#;
     </select>
     <select id="getGCFechaDesde" parameterClass="String" resultMap="gastoComunResult">
         SELECT
-        C.FECHA, C.MONTO
+        C.FECHA, C.MONTO, C.DESCRIPCION
         FROM GASTO_COMUN AS C
         WHERE C.FECHA&gt;#value#;
     </select>
     <select id="getGCFechaHasta" parameterClass="String" resultMap="gastoComunResult">
         SELECT
-        C.FECHA, C.MONTO
+        C.FECHA, C.MONTO, C.DESCRIPCION
         FROM GASTO_COMUN AS C
         WHERE C.FECHA&lt;#value#;
     </select>
 
     <insert id="insertGC" parameterClass="com.usuario.empresa.web.administracion.entidades.GastoComun">
-        INSERT gasto_comun (FECHA, MONTO)
-        VALUES (#fecha#, #monto#);
+        INSERT gasto_comun (FECHA, MONTO, DESCRIPCION)
+        VALUES (#fecha#, #monto#, #descripcion#);
     </insert>
+    <update id="updateGC" parameterClass="com.usuario.empresa.web.administracion.entidades.GastoComun">
+        UPDATE gasto_comun SET MONTO=#monto#, DESCRIPCION=#descripcion#
+        WHERE FECHA=#fecha#;
+    </update>
+
+    <delete id="deleteGC" parameterClass="String">
+        DELETE FROM gasto_comun
+        WHERE FECHA=#value#;
+    </delete>
 
 </sqlMap>

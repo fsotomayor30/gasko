@@ -21,13 +21,19 @@
                         <div class="col-12">
                             <span class="oi oi-calendar"></span>
                             <label for="date" class="col-2 col-form-label">Fecha:</label>
-                            <input class="form-control" type="date" value="2018-06-06" id="date" name="date">
+                            <input class="form-control" type="date" value="2018-06-06" id="date" name="date" required>
                         </div>
 
                         <div class="col-12">
                             <span class="oi oi-dollar"></span>
                             <label for="monto" class="col-2 col-form-label">Monto:</label>
-                            <input class="form-control" type="number" value="0" id="monto" name="monto">
+                            <input class="form-control" type="number" value="0" id="monto" name="monto" required>
+                        </div>
+
+                        <div class="col-12">
+                            <span class="oi oi-list"></span>
+                            <label for="descripcion" class="col-2 col-form-label">Descripcion:</label>
+                            <textarea class="form-control" rows="5" id="descripcion" name="descripcion" required maxlength="50"></textarea>
                         </div>
                     </div>
                     <center>
@@ -36,4 +42,8 @@
                     </center>
                     <br></br>
             </div>
+            </div>
+        </div>
+    </div>
+</form>
 [/@structure]

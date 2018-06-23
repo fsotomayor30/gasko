@@ -42,6 +42,9 @@
                                     <th scope="col">Estado</th>
                                     <th scope="col">Monto</th>
                                     <th scope="col">Fecha</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Modificar</th>
+                                    <th scope="col">Eliminar</th>
                                 </tr>
 
 
@@ -53,8 +56,24 @@
                 <td>${pago.username}</td>
             <td>${pago.estado}</td>
             <td>${gastoComun.monto}</td>
-            <td>${gastoComun.fecha}</td>
-            </tr>
+            <td>${gastoComun.fecha?string.iso}</td>
+                <td>${gastoComun.descripcion}</td>
+                <td>
+                    <form action="/administracion/administradores/modificarGC.xml" method="POST">
+                        <input name="fecha" type="hidden" value=${gastoComun.fecha? string.iso} />
+                        <input type="submit" class="btn btn-primary" value="Modificar">
+
+    </form>
+                </td>
+                <td>
+                        <form action="/administracion/administradores/eliminarGC.xml" method="POST">
+                            <input name="fecha" type="hidden" value=${gastoComun.fecha? string.iso} />
+                            <input name="username" type="hidden" value=${pago.username} />
+                            <input type="submit" class="btn btn-danger" value="Eliminar">
+
+                            </form>
+                                </td>
+                </tr>
             [/#if]
         [/#list]
 
@@ -71,6 +90,7 @@
     <a href="#" class="btn btn-primary">Exportar PDF</a>
     <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
 </center>
+<br></br>
                 </div>
 
             </div>

@@ -10,16 +10,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.Authentication;
 import org.springframework.security.context.SecurityContextHolder;
-import org.springframework.security.userdetails.User;
 import org.springframework.security.userdetails.UserDetails;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
 
 public class GastoComunController extends MultiActionController {
 
@@ -163,7 +162,8 @@ public class GastoComunController extends MultiActionController {
         String fecha=request.getParameter("date");
         int cantidadUsuarios=serviceU.getTotalUsuariosNormales();
         Date fechaI=java.sql.Date.valueOf(fecha);
-        serviceGC.insertGC(new GastoComun(fechaI,(monto/cantidadUsuarios)));
+        String descipcion=request.getParameter("descripcion");
+        serviceGC.insertGC(new GastoComun(fechaI,(monto/cantidadUsuarios), descipcion));
         for (Users user:listaUsuariosNormal) {
             serviceP.insertPago(new Pagar("pendiente de pago", fechaI, user.getUsername()));
         }
@@ -173,5 +173,55 @@ public class GastoComunController extends MultiActionController {
         return modelAndView;
     }
 
+    public ModelAndView modificarGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails=(UserDetails) auth.getPrincipal();
 
+        String fecha=request.getParameter("fecha");
+        Date fechaBusqueda=Date.valueOf(fecha);
+        GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
+
+        ModelAndView modelAndView=new ModelAndView("administradores/modificarGC");
+        modelAndView.addObject("gastoComun",gc);
+        modelAndView.addObject("usuario",userDetails.getUsername());
+        return modelAndView;
+    }
+
+    public ModelAndView modificarGCE(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails=(UserDetails) auth.getPrincipal();
+
+        int cantidadUsuarios=serviceU.getTotalUsuariosNormales();
+
+        String fecha=request.getParameter("date");
+        Date fechaBusqueda=Date.valueOf(fecha);
+        GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
+        gc.setMonto((Integer.parseInt(request.getParameter("montoNuevo")))/cantidadUsuarios);
+        gc.setDescripcion(request.getParameter("descripcionNueva"));
+        serviceGC.updateGC(gc);
+
+        ModelAndView modelAndView=new ModelAndView("indexAdmin");
+        modelAndView.addObject("usuario",userDetails.getUsername());
+        return modelAndView;
+    }
+
+    public ModelAndView eliminarGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        String fecha=request.getParameter("fecha");
+        Date fechaBusqueda=Date.valueOf(fecha);
+        GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
+        String username=request.getParameter("username");
+        List<Pagar> listaPagos=serviceP.getPagos();
+        for (Pagar pagos:listaPagos) {
+            if (pagos.getFecha().compareTo(gc.getFecha())==0 && pagos.getUsername().equals(username)) {
+                serviceP.deletePago(pagos);
+            }
+        }
+        serviceGC.deleteGC(fecha);
+        ModelAndView modelAndView=new ModelAndView("indexAdmin");
+        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails=(UserDetails) auth.getPrincipal();
+        modelAndView.addObject("usuario",userDetails.getUsername());
+
+        return modelAndView;
+    }
 }
