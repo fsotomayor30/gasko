@@ -12,7 +12,15 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
+<<<<<<< HEAD
                 <center><h1></span>Modificar Gasto Comun</h1></center>
+=======
+                <br></br>
+                <center>
+                    <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
+                </center>
+                <center><h1>Estamos trabajando para ud.</h1></center>
+>>>>>>> c95924927bed0d375ce0f1b4b8e9861513a463bc
 
                 <div class="card-body">
                     <div class="card" style="background: #EAEAEA">

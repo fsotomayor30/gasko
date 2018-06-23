@@ -38,7 +38,6 @@
                             <table class="table table-striped">
 
                                 <tr>
-                                    <th scope="col">Username Miembro</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Monto</th>
                                     <th scope="col">Fecha</th>
