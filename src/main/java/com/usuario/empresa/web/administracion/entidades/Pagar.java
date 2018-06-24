@@ -8,14 +8,24 @@ public class Pagar {
     private String estado;
     private Date fecha;
     private String username;
+    private int monto;
 
-    public Pagar(String estado, Date fecha, String username) {
+    public Pagar(String estado, int monto, Date fecha, String username) {
         this.estado = estado;
+        this.monto = monto;
         this.fecha = fecha;
         this.username= username;
     }
 
     public Pagar() {
+    }
+
+    public int getMonto() {
+        return monto;
+    }
+
+    public void setMonto(int monto) {
+        this.monto = monto;
     }
 
     public int getId_pagar() {

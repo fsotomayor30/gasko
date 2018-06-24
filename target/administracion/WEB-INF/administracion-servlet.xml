@@ -15,6 +15,7 @@
 	<bean name="/administradores/modificarGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/PagoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
 	<bean name="/administradores/PagoGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
+	<bean name="/administradores/generarPago.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
 	<bean name="/administradores/eliminarGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/IngresoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/modificarGC.xml"		class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />

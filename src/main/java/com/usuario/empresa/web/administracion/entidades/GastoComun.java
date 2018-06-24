@@ -6,14 +6,33 @@ public class GastoComun {
     private Date fecha;
     private int monto;
     private String descripcion;
+    private int id;
+    int generado;
 
-    public GastoComun(Date fecha, int monto, String descripcion) {
+    public GastoComun(Date fecha, int id, int monto, String descripcion) {
         this.fecha = fecha;
+        this.id = id;
         this.monto = monto;
         this.descripcion=descripcion;
     }
 
     public GastoComun() {
+    }
+
+    public int getGenerado() {
+        return generado;
+    }
+
+    public void setGenerado(int generado) {
+        this.generado = generado;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getFecha() {

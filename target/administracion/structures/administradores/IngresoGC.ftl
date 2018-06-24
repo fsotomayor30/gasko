@@ -7,12 +7,51 @@
   </span>
     <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
 </nav>
-<br></br>
+<br>
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <div class="card" style="background: #EAEAEA">
+            <center><h1>Gasto Comun Mes Actual</h1></center>
+
+            <div class="card-body">
+
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Descripcion</th>
+                    </tr>
+            [#assign x = 0]
+            [#list gastosComunes as gc]
+            <tr>
+                <td>${gc.id}</td>
+                <td>${gc.fecha}</td>
+                <td>${gc.monto}</td>
+                <td>${gc.descripcion}</td>
+                [#if gc.generado=0]
+                    [#assign x = x + gc.monto]
+                [/#if]
+
+            </tr>
+
+            [/#list]
+            <tr style="text-align: right"><td colspan="5">Total: ${x}</td></tr>
+                </table>
+
+
+
+                <br></br>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
 <form action="ingresoGCE.xml" method="POST">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
-                <center><h1></span>Ingreso Gasto Comun</h1></center>
+                <center><h1>Ingreso Gasto Comun</h1></center>
 
                 <div class="card-body">
 

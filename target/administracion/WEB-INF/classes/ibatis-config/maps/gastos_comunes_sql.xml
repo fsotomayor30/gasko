@@ -5,31 +5,33 @@
     <resultMap id="gastoComunResult" class="com.usuario.empresa.web.administracion.entidades.GastoComun">
         <result property="fecha" 		column="FECHA" />
         <result property="monto" 	column="MONTO" />
+        <result property="id" 	column="ID" />
+        <result property="generado" 	column="GENERADO" />
         <result property="descripcion" column="DESCRIPCION" />
     </resultMap>
 
     <!-- sqls -->
     <!-- Obtiene la fecha y monto de la tabla GASTO_COMUN de la BD alojada en mysql -->
     <select id="getGastosComunes" resultMap="gastoComunResult">
-        SELECT C.FECHA, C.MONTO, C.DESCRIPCION
+        SELECT C.FECHA, C.MONTO, C.DESCRIPCION, C.ID, C.GENERADO
         FROM GASTO_COMUN AS C
         ORDER BY C.FECHA;
     </select>
     <select id="getGastoComun" parameterClass="date" resultMap="gastoComunResult">
         SELECT
-        C.FECHA, C.MONTO, C.DESCRIPCION
+        C.FECHA, C.MONTO, C.DESCRIPCION, C.ID, C.GENERADO
         FROM GASTO_COMUN AS C
         WHERE C.FECHA=#value#;
     </select>
     <select id="getGCFechaDesde" parameterClass="String" resultMap="gastoComunResult">
         SELECT
-        C.FECHA, C.MONTO, C.DESCRIPCION
+        C.FECHA, C.MONTO, C.DESCRIPCION, C.ID, C.GENERADO
         FROM GASTO_COMUN AS C
         WHERE C.FECHA&gt;#value#;
     </select>
     <select id="getGCFechaHasta" parameterClass="String" resultMap="gastoComunResult">
         SELECT
-        C.FECHA, C.MONTO, C.DESCRIPCION
+        C.FECHA, C.MONTO, C.DESCRIPCION, C.ID, C.GENERADO
         FROM GASTO_COMUN AS C
         WHERE C.FECHA&lt;#value#;
     </select>
@@ -39,8 +41,8 @@
         VALUES (#fecha#, #monto#, #descripcion#);
     </insert>
     <update id="updateGC" parameterClass="com.usuario.empresa.web.administracion.entidades.GastoComun">
-        UPDATE gasto_comun SET MONTO=#monto#, DESCRIPCION=#descripcion#
-        WHERE FECHA=#fecha#;
+        UPDATE gasto_comun SET MONTO=#monto#, DESCRIPCION=#descripcion#, GENERADO=#generado#
+        WHERE ID=#id#;
     </update>
 
     <delete id="deleteGC" parameterClass="String">
