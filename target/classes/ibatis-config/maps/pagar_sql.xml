@@ -6,18 +6,19 @@
         <result property="id_pagar" 		column="ID_PAGAR" />
         <result property="estado" 		    column="ESTADO" />
         <result property="fecha" 			column="FECHA" />
+        <result property="monto" 			column="MONTO" />
         <result property="username" 		column="USERNAME" />
 
     </resultMap>
 	<!-- Obtiene el Id de pago, estado del pago, fecha de pago y nombre del usuario asociado al pago de la tabla PAGAR de la BD alojada en mysql -->
     <select id="getPagos"  resultMap="pagarResult">
-        SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME
+        SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME, C.MONTO
         FROM PAGAR AS C;
     </select>
 
     <insert id="insertPago" parameterClass="com.usuario.empresa.web.administracion.entidades.Pagar">
-        INSERT pagar (ESTADO, FECHA, USERNAME)
-        VALUES (#estado#, #fecha#, #username#);
+        INSERT pagar (ESTADO, FECHA, USERNAME, MONTO)
+        VALUES (#estado#, #fecha#, #username#, #monto#);
     </insert>
 
     <update id="updatePago" parameterClass="com.usuario.empresa.web.administracion.entidades.Pagar">

@@ -27,7 +27,7 @@
                 <br></br>
                 <div class="row">
                 <div class="col-md-6">
-                    <a href="#" class="btn btn-primary btn-lg btn-block">Eliminar Cuenta de gasto común</a>
+                    <a href="/administracion/administradores/generarPago.xml" class="btn btn-primary btn-lg btn-block">Generar gastos comunes</a>
                 </div>
                 <br></br>
                 <div class="col-md-6">

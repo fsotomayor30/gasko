@@ -3,6 +3,7 @@
 <br></br>
 <nav class="navbar navbar-light bg-light">
   <span style="text-align:center" class="navbar-text">
+  <!--${usuario} es el username con el cual se inicio sesion, este se obtiene en el controlador "GastoComunController", especificamente del metodo VerGCAdmin-->
     Bienvenido al Sistema de Gestion de Gastos Comunes - Modo administrador - En sesión: ${usuario}
   </span>
     <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
@@ -32,57 +33,38 @@
                         <input type="submit" class="btn btn-primary" value="Buscar">
                         <a href="VerGCAdmin.xml" class="btn btn-primary">Reestablecer</a>
                     </center>
+
 </form>
-                        <br></br>
-                        <div class="col-12">
-                            <table class="table table-striped">
 
-                                <tr>
-                                    <th scope="col">Estado</th>
-                                    <th scope="col">Monto</th>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Descripcion</th>
-                                    <th scope="col">Modificar</th>
-                                    <th scope="col">Eliminar</th>
-                                </tr>
+<br></br>
+<div class="col-12">
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Nombre del miembro</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Fecha Generacion Pago</th>
+            <th scope="col">Descripcion</th>
+        </tr>
 
-
-                    [#list gastosComunes as gastoComun]
-
-        [#list pagos as pago]
-            [#if gastoComun.fecha == pago.fecha ]
+            [#list pagos as pago]
             <tr>
+                [#assign x = ""]
+                [#list gastosComunes as gc]
+                    [#if gc.fecha?string.MM == pago.fecha?string.MM]
+                        [#assign x= "${x} "+ gc.descripcion]
+                    [/#if]
+                [/#list]
                 <td>${pago.username}</td>
-            <td>${pago.estado}</td>
-            <td>${gastoComun.monto}</td>
-            <td>${gastoComun.fecha?string.iso}</td>
-                <td>${gastoComun.descripcion}</td>
-                <td>
-                    <form action="/administracion/administradores/modificarGC.xml" method="POST">
-                        <input name="fecha" type="hidden" value=${gastoComun.fecha? string.iso} />
-                        <input type="submit" class="btn btn-primary" value="Modificar">
+                <td>${pago.estado}</td>
+                <td>${pago.monto}</td>
+                <td>${pago.fecha}</td>
+                <td>${x}</td>
+            </tr>
+            [/#list]
 
-    </form>
-                </td>
-                <td>
-                        <form action="/administracion/administradores/eliminarGC.xml" method="POST">
-                            <input name="fecha" type="hidden" value=${gastoComun.fecha? string.iso} />
-                            <input name="username" type="hidden" value=${pago.username} />
-                            <input type="submit" class="btn btn-danger" value="Eliminar">
-
-                            </form>
-                                </td>
-                </tr>
-            [/#if]
-        [/#list]
-
-
-                    [/#list]
-
-
-                            </table>
-                        </div>
-                    </div>
+    </table>
+</div>
 <center>
 
     <a href="#" class="btn btn-primary">Exportar Excel</a>
@@ -95,5 +77,4 @@
             </div>
 
         </div>
-<br></br>
 [/@structure]

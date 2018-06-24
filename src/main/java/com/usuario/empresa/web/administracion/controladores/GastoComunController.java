@@ -127,50 +127,70 @@ public class GastoComunController extends MultiActionController {
 
     }
 
-    public ModelAndView VerGCAdmin(HttpServletRequest request,HttpServletResponse response) throws Exception {
+    //Creo y cargo dos listas, una con objetos de la clase GastoComun y otra con objetos de la clase Pagar, tambien obtengo el username que se utilizo para iniciar sesion. Luego envio los datos mencionados anteriormente a la vista VerGCAdmin
+    public ModelAndView VerGCAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
         List <GastoComun> gcadmin=new ArrayList<GastoComun>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista gcadmin
         gcadmin.clear();
         List<Pagar> pgadmin=new ArrayList<Pagar>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista pgadmin
         pgadmin.clear();
 
+        //lleno ambas listas con la lista entregada por cada servicio
         gcadmin=serviceGC.getGastosComunes();
         pgadmin=serviceP.getPagos();
 
+        //defino la vista VerGCAdmin para entregarle las listas de gastos comunes y pagos posteriormente
         ModelAndView modelAndView=new ModelAndView("administradores/VerGCAdmin");
+
+        //obtengo el username con el cual inicio sesion
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
+        //le paso el username a la vista VerGCAdmin para que pueda utilizarlo
         modelAndView.addObject("usuario",userDetails.getUsername());
+        //le paso ambas listas a la vista VerGCAdmin para que pueda utilizarlas 
         modelAndView.addObject("gastosComunes",gcadmin);
         modelAndView.addObject("pagos",pgadmin);
         return modelAndView;
     }
 
     public ModelAndView IngresoGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        //Se obtienen los datos del usuario que esta en sesion
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
+
+        //Se obtienen el listado de gastos comunes
+        List<GastoComun> gc = serviceGC.getGastosComunes();
+
         ModelAndView modelAndView=new ModelAndView("administradores/IngresoGC");
+        modelAndView.addObject("gastosComunes", gc);
         modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
     }
 
     public ModelAndView ingresoGCE(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        //Se obtienen los datos del usuario en sesion
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
-        List<Users> listaUsuariosNormal=serviceU.getUsersUsuarioNormal();
+
+        //obtengo los datos del formulario
         String montoS=request.getParameter("monto");
         int monto=Integer.valueOf(montoS);
         String fecha=request.getParameter("date");
         int cantidadUsuarios=serviceU.getTotalUsuariosNormales();
         Date fechaI=java.sql.Date.valueOf(fecha);
         String descipcion=request.getParameter("descripcion");
-        serviceGC.insertGC(new GastoComun(fechaI,(monto/cantidadUsuarios), descipcion));
-        for (Users user:listaUsuariosNormal) {
-            serviceP.insertPago(new Pagar("pendiente de pago", fechaI, user.getUsername()));
-        }
 
+        //Se crea un gasto comun y se ingresa
+        GastoComun gc = new GastoComun();
+        gc.setFecha(fechaI);
+        gc.setMonto(monto);
+        gc.setDescripcion(descipcion);
+        serviceGC.insertGC(gc);
         ModelAndView modelAndView=new ModelAndView("indexAdmin");
         modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
+
     }
 
     public ModelAndView modificarGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
