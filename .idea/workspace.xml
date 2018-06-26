@@ -8,57 +8,26 @@
   <component name="ChangeListManager">
     <list default="true" id="bdcf9978-fe89-4726-ae24-a3ea54d8cab6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/PagarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/PagarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/GastoComun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/GastoComun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/Pagar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/Pagar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/PagarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/PagarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/PagarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/PagarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/GastoComun.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/GastoComun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/Pagar.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/Pagar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/spring/applicationContext-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/spring/applicationContext-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/spring/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/administracion-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/administracion-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/PagarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/PagarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/GastoComun.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/GastoComun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/Pagar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/entidades/Pagar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/spring/applicationContext-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/spring/applicationContext-security.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/spring/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/IngresoGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/IngresoGC.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/VerGCAdmin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/VerGCAdmin.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/modificarGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/modificarGC.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/indexAdmin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/indexAdmin.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/PagarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/PagarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/entidades/GastoComun.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/entidades/GastoComun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/entidades/Pagar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/entidades/Pagar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext-security.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IngresoGC.ftl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IngresoGC.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+            <state relative-caret-position="765">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="58" />
               <folding>
                 <element signature="e#1460#1485#0#HTML" expanded="true" />
               </folding>
@@ -82,34 +51,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VerGCAdmin.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl">
+      <file leaf-file-name="indexAdmin.ftl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="65" column="12" selection-start-line="40" selection-start-column="4" selection-end-line="65" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GastoComunController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="165" column="30" selection-start-line="165" selection-start-column="30" selection-end-line="165" selection-end-column="30" />
+            <state>
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5850#5862#0" expanded="true" />
-                <element signature="e#6097#6104#0" expanded="true" />
+                <element signature="e#1024#1048#0#HTML" expanded="true" />
+                <element signature="e#1242#1266#0#HTML" expanded="true" />
+                <element signature="e#1625#1649#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indexAdmin.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
+            <state relative-caret-position="204">
+              <caret line="102" column="12" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -171,15 +131,15 @@
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/Pagar.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/pagar_sql.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/GastoComun.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/PagarController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/PagarController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl" />
       </list>
     </option>
   </component>
@@ -624,16 +584,23 @@
       <workItem from="1528601916486" duration="776000" />
       <workItem from="1528680935590" duration="3967000" />
       <workItem from="1529774034214" duration="670000" />
-      <workItem from="1529805494940" duration="16033000" />
+      <workItem from="1529805494940" duration="19430000" />
     </task>
+    <task id="LOCAL-00001" summary="[GastoComunController.java] [Modificado]&#10;[Al ingresar gc, se crea con atributo generado 0]&#10;&#10;[PagarController.java] [Modificado]&#10;[Al ingresar un pago, no se agrega el monto dividido, aqui se cuentan la cantidad de usuarios, los divide y los inserta]&#10;&#10;[GastoComun.java] [Modificado]&#10;[Agrego dos atributos id y generado, ademas se agrega el get y set respectivos]&#10;&#10;[Pagar.java] [Modificado]&#10;[Agrego el atributo monto con su respectivo get y set]&#10;&#10;[gastos_comunes_sql.xml] [Modificado]&#10;[agrege los dos atributos id y generado]&#10;&#10;[pagar_sql.xml] [Modificado]&#10;[Agrege los atributos monto]&#10;&#10;[IngregoGC.ftl] [Modificado]&#10;[Agrege la tabla para visualizar los gc del mes actual]&#10;&#10;[VerGCAdmin.ftl] [Modificado]&#10;[modifique la tabla]">
+      <created>1529882677151</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1529882677151</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107518000" />
+    <option name="totallyTimeSpent" value="110915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50907713" side_tool="true" weight="0.2993421" />
@@ -655,7 +622,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.91611844" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32838285" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49092284" visible="true" weight="0.42079207" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49092284" visible="true" weight="0.39768976" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23071104" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -898,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="102" column="12" lean-forward="true" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/PagarService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
@@ -1003,16 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/PagarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1025,13 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
@@ -1039,12 +982,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/PagarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="102" column="12" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+        <state relative-caret-position="765">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="58" />
           <folding>
             <element signature="e#1460#1485#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/indexAdmin.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="e#1024#1048#0#HTML" expanded="true" />
+            <element signature="e#1242#1266#0#HTML" expanded="true" />
+            <element signature="e#1625#1649#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

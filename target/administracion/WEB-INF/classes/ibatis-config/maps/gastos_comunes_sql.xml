@@ -5,8 +5,8 @@
     <resultMap id="gastoComunResult" class="com.usuario.empresa.web.administracion.entidades.GastoComun">
         <result property="fecha" 		column="FECHA" />
         <result property="monto" 	column="MONTO" />
-        <result property="id" 	column="ID" />
-        <result property="generado" 	column="GENERADO" />
+        <result property="id" column="ID"/>
+        <result property="generado" column="GENERADO"/>
         <result property="descripcion" column="DESCRIPCION" />
     </resultMap>
 
