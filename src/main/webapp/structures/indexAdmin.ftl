@@ -35,7 +35,7 @@
                     <a href="/administracion/administradores/VerGCAdmin.xml"
                        class="btn btn-primary btn-lg btn-block"><img src="/administracion/img/view.png"
                                                                      style="max-width: 80px;" class="img-fluid">
-                        Visualizar Cuenta de gasto común</a>
+                        Visualizar Cuentas de gastos comunes generados</a>
                 </div>
                 </div>
                 <br></br>

@@ -49,8 +49,10 @@ public class GastoComunController extends MultiActionController {
 
 
     public ModelAndView pantallaInicioMiembro(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        //se crea una lista de los pagos
         List <Pagar> listaPagosResultantes=new ArrayList<Pagar>();
-        listaGastosComunesResultantes=new ArrayList<GastoComun>();
+
+        //Se obtienen los datos del usuario el sesion para mostrar sus gc
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
         usuario = userDetails.getUsername();
@@ -60,18 +62,13 @@ public class GastoComunController extends MultiActionController {
                 listaPagosResultantes.add(Pagos);
             }
         }
-        listaGastosComunes=serviceGC.getGastosComunes();
-        for (Pagar listaPago:listaPagosResultantes) {
-            for (GastoComun gastoComun: listaGastosComunes) {
-                if (listaPago.getFecha().compareTo(gastoComun.getFecha())== 0){
-                    listaGastosComunesResultantes.add(gastoComun);
 
-                }
-            }
-        }
+        //Se obtienen los gastso comunes
+        listaGastosComunes=serviceGC.getGastosComunes();
+
 
         ModelAndView modelAndView=new ModelAndView("usuarios/pantallaInicioMiembro");
-        modelAndView.addObject("gastosComunes",listaGastosComunesResultantes);
+        modelAndView.addObject("gastosComunes", listaGastosComunes);
         modelAndView.addObject("usuario",userDetails.getUsername());
         modelAndView.addObject("pagos",listaPagosResultantes);
         return modelAndView;
