@@ -37,15 +37,15 @@
 </form>
 
 <br></br>
-    <div class="col-12" >
-        <table class="table table-striped">
-         <tr>
+<div class="col-12">
+    <table class="table table-striped">
+        <tr>
             <th scope="col">Nombre del miembro</th>
             <th scope="col">Estado</th>
             <th scope="col">Monto</th>
             <th scope="col">Fecha Generacion Pago</th>
             <th scope="col">Descripcion</th>
-         </tr>
+        </tr>
 
             [#list pagos as pago]
             <tr>
@@ -63,8 +63,8 @@
             </tr>
             [/#list]
 
-     </table>
-    </div>
+    </table>
+</div>
 <center>
 
     <a href="#" class="btn btn-primary">Exportar Excel</a>

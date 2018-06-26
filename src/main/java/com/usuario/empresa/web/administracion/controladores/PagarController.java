@@ -90,9 +90,11 @@ public class PagarController extends MultiActionController {
             }
         }
 
-        for (Users us : listaUsuariosNormal) {
-            Pagar pago = new Pagar("pendiente de pago", (saldoMes / listaUsuariosNormal.size()), sqlDate, us.getUsername());
-            serviceP.insertPago(pago);
+        if (saldoMes != 0) {
+            for (Users us : listaUsuariosNormal) {
+                Pagar pago = new Pagar("pendiente de pago", (saldoMes / listaUsuariosNormal.size()), sqlDate, us.getUsername());
+                serviceP.insertPago(pago);
+            }
         }
 
         ModelAndView modelAndView=new ModelAndView("indexAdmin");

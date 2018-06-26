@@ -37,11 +37,19 @@
 
             [/#list]
                     <tr style="text-align: right">
-                        <td colspan="5"><h3>Total Gastos Común no generados: ${x}</h3></td>
+                        <td colspan="5"><h6>Total Gastos Común no generados: ${x}</h6></td>
                     </tr>
                 </table>
 
-
+                <center>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4">
+                            <a href="/administracion/administradores/generarPago.xml"
+                               class="btn btn-primary btn-lg btn-block">Generar
+                                gastos comunes</a>
+                        </div>
+                    </div>
+                </center>
                 <br></br>
             </div>
         </div>

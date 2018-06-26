@@ -6,11 +6,11 @@
         <result property="id_pagar" 		column="ID_PAGAR" />
         <result property="estado" 		    column="ESTADO" />
         <result property="fecha" 			column="FECHA" />
-        <result property="monto" 			column="MONTO" />
+        <result property="monto" column="MONTO"/>
         <result property="username" 		column="USERNAME" />
 
     </resultMap>
-	<!-- Obtiene el Id de pago, estado del pago, fecha de pago y nombre del usuario asociado al pago de la tabla PAGAR de la BD alojada en mysql -->
+    <!-- Obtiene el Id de pago, estado del pago, fecha de pago y nombre del usuario asociado al pago de la tabla PAGAR de la BD alojada en mysql -->
     <select id="getPagos"  resultMap="pagarResult">
         SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME, C.MONTO
         FROM PAGAR AS C;

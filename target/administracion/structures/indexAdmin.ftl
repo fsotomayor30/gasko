@@ -16,22 +16,22 @@
                 <div class="card" style="background-color: rgba(255, 255, 255, 0.5);">
                 <br></br>
                 <div class="row">
-                <div class="col-md-6">
-                    <a  href="/administracion/administradores/IngresoGC.xml" class="btn btn-primary btn-lg btn-block">Ingresar Cuenta de gasto común</a>
-                </div>
+                    <div class="col-md-6">
+                        <a  href="/administracion/administradores/IngresoGC.xml" class="btn btn-primary btn-lg btn-block">
+                            <img src="/administracion/img/add.png" class="img-fluid" style="max-width: 80px;">
+                            Ingresar Cuenta de gasto común</a>
+                    </div>
 
                     <div class="col-md-6">
-                        <a href="/administracion/administradores/PagoGC.xml" class="btn btn-primary btn-lg btn-block">Ingresar Pago de gasto común</a>
+                        <a href="/administracion/administradores/PagoGC.xml" class="btn btn-primary btn-lg btn-block">
+                            <img src="/administracion/img/add.png" style="max-width: 80px;" class="img-fluid">
+                            Ingresar Pago de gasto común</a>
                     </div>
                 </div>
                 <br></br>
                 <div class="row">
                 <div class="col-md-6">
-                    <a href="/administracion/administradores/generarPago.xml" class="btn btn-primary btn-lg btn-block">Generar gastos comunes</a>
-                </div>
-                <br></br>
-                <div class="col-md-6">
-                    <a href="/administracion/administradores/VerGCAdmin.xml" class="btn btn-primary btn-lg btn-block">Visualizar  Cuenta de gasto común</a>
+                    <a href="/administracion/administradores/VerGCAdmin.xml" class="btn btn-primary btn-lg btn-block"><img src="/administracion/img/view.png" style="max-width: 80px;" class="img-fluid"> Visualizar  Cuenta de gasto común</a>
                 </div>
                 </div>
                 <br></br>
