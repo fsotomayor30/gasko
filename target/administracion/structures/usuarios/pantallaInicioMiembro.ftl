@@ -38,7 +38,6 @@
                         <br></br>
                         <div class="col-12">
                             <table class="table table-striped">
-
                                 <tr>
                                     <th scope="col">Fecha</th>
                                     <th scope="col">Estado</th>
@@ -46,21 +45,19 @@
                                     <th scope="col">Descripcion</th>
                                 </tr>
 
-
-                    [#list gastosComunes as gastoComun]
-    <tr>
-        <td>${gastoComun.fecha}</td>
-                        [#list pagos as pago]
-                            [#if gastoComun.fecha == pago.fecha ]
-        <td>${pago.estado}</td>
+                    [#list pagos as pago]
+                        <tr>
+                        [#assign x = ""]
+                        [#list gastosComunes as gc]
+                            [#if gc.fecha?string.MM == pago.fecha?string.MM]
+                                [#assign x= "${x} "+ gc.descripcion]
                             [/#if]
                         [/#list]
-        <td>${gastoComun.monto}</td>
-        <td>${gastoComun.descripcion}</td>
-    </tr>
+                            <td>${pago.fecha}</td>
+                            <td>${pago.estado}</td>
+                            <td>${pago.monto}</td>
+                            <td>${x}</td>
                     [/#list]
-
-
                             </table>
                         </div>
                     </div>

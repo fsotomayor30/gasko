@@ -44,7 +44,8 @@
                 <center>
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <a href="/administracion/administradores/generarPago.xml" class="btn btn-primary btn-lg btn-block">Generar
+                            <a href="/administracion/administradores/generarPago.xml"
+                               class="btn btn-primary btn-lg btn-block">Generar
                                 gastos comunes</a>
                         </div>
                     </div>
