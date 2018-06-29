@@ -8,28 +8,52 @@
     <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
 </nav>
 <br></br>
-<form action="PagoGCE.xml" method="POST">
+
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
                 <center><h1></span>Pago Gasto Comun</h1></center>
                 <div class="card-body">
-                    <div class="form-group row">
-                        <div class="col-12">
-                            <span class="oi oi-calendar"></span>
-                            <label for="date" class="col-2 col-form-label">Fecha:</label>
-                            <input class="form-control" type="date" value="2018-06-06" id="date" name="date" required>
-                        </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th scope="col">Nombre del miembro</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Monto</th>
+                            <th scope="col">Fecha Generación Pago</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Pagar</th>
+                        </tr>
 
-                        <div class="col-12">
-                            <span class="oi oi-person"></span>
-                            <label for="username" class="col-2 col-form-label">Username:</label>
-                            <input class="form-control" type="text" id="username" name="username" required>
-                        </div>
+            [#list pagos as pago]
+            <tr>
+                <form action="PagoGCE.xml" method="POST">
+                    <input type="hidden" name="id" id="id" value=${pago.id_pagar}>
+                [#assign x = ""]
+                [#list gastosComunes as gc]
+                    [#if gc.fecha?string.MM == pago.fecha?string.MM]
+                        [#list tiposGastosComunes as tp]
+                            [#if gc.descripcion = tp.id]
+                                [#assign x= "${x} "+ tp.descripcion]
+                            [/#if]
+                        [/#list]
 
-                    </div>
+                    [/#if]
+                [/#list]
+                    <td>${pago.username}</td>
+                    <td>${pago.estado}</td>
+                    <td>${pago.monto}</td>
+                    <td>${pago.fecha}</td>
+                    <td>${x}</td>
+
+                [#if pago.estado = "Pagado"]
+                    <td>Ya fue pagado este gasto común</td>
+                [#else]
+                    <td><input type="submit" class="btn btn-primary" value="Pagar"></td>
+                [/#if]
+            </tr>
+            [/#list]
+                    </table>
                     <center>
-                        <input type="submit" class="btn btn-primary" value="Pagar G.C">
                         <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
                     </center>
                     <br></br>

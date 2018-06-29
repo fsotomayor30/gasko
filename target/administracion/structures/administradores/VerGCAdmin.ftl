@@ -43,8 +43,8 @@
             <th scope="col">Nombre del miembro</th>
             <th scope="col">Estado</th>
             <th scope="col">Monto</th>
-            <th scope="col">Fecha Generacion Pago</th>
-            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha Generación Pago</th>
+            <th scope="col">Tipo</th>
         </tr>
 
             [#list pagos as pago]
@@ -52,7 +52,12 @@
                 [#assign x = ""]
                 [#list gastosComunes as gc]
                     [#if gc.fecha?string.MM == pago.fecha?string.MM]
-                        [#assign x= "${x} "+ gc.descripcion]
+                        [#list tiposGastosComunes as tp]
+                            [#if gc.descripcion = tp.id]
+                                [#assign x= "${x} "+ tp.descripcion]
+                            [/#if]
+                        [/#list]
+
                     [/#if]
                 [/#list]
                 <td>${pago.username}</td>

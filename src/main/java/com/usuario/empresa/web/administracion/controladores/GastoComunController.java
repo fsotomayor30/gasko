@@ -2,10 +2,12 @@ package com.usuario.empresa.web.administracion.controladores;
 
 import com.usuario.empresa.web.administracion.entidades.GastoComun;
 import com.usuario.empresa.web.administracion.entidades.Pagar;
+import com.usuario.empresa.web.administracion.entidades.TipoGasto;
 import com.usuario.empresa.web.administracion.entidades.Users;
 import com.usuario.empresa.web.administracion.servicios.GastoComunService;
 import com.usuario.empresa.web.administracion.servicios.InicioService;
 import com.usuario.empresa.web.administracion.servicios.PagarService;
+import com.usuario.empresa.web.administracion.servicios.TipoGastoService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.Authentication;
@@ -26,6 +28,7 @@ public class GastoComunController extends MultiActionController {
     List<GastoComun> listaGastosComunesResultantes;
 
     private GastoComunService serviceGC = null;
+    private TipoGastoService serviceTG = null;
     private PagarService serviceP = null;
     private InicioService serviceU=null;
     private ApplicationContext ctx = null;
@@ -45,6 +48,7 @@ public class GastoComunController extends MultiActionController {
         serviceGC = (GastoComunService) ctx.getBean("gastosComunesService");
         serviceP = (PagarService) ctx.getBean("pagosService");
         serviceU=(InicioService) ctx.getBean("iniciosService");
+        serviceTG = (TipoGastoService) ctx.getBean("tipoGastoService");
     }
 
 
@@ -140,6 +144,9 @@ public class GastoComunController extends MultiActionController {
         //defino la vista VerGCAdmin para entregarle las listas de gastos comunes y pagos posteriormente
         ModelAndView modelAndView=new ModelAndView("administradores/VerGCAdmin");
 
+        //Se obtienen los tipos de gastos comunes
+        List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
+
         //obtengo el username con el cual inicio sesion
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
@@ -147,6 +154,8 @@ public class GastoComunController extends MultiActionController {
         modelAndView.addObject("usuario",userDetails.getUsername());
         //le paso ambas listas a la vista VerGCAdmin para que pueda utilizarlas 
         modelAndView.addObject("gastosComunes",gcadmin);
+        //le paso a la vista los tipos de gastos comunes
+        modelAndView.addObject("tiposGastosComunes", tipoGastos);
         modelAndView.addObject("pagos",pgadmin);
         return modelAndView;
     }
@@ -159,8 +168,12 @@ public class GastoComunController extends MultiActionController {
         //Se obtienen el listado de gastos comunes
         List<GastoComun> gc = serviceGC.getGastosComunes();
 
+        //Se obtienen los tipos de gastos
+        List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
+
         ModelAndView modelAndView=new ModelAndView("administradores/IngresoGC");
         modelAndView.addObject("gastosComunes", gc);
+        modelAndView.addObject("tiposGastos", tipoGastos);
         modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
     }
@@ -182,8 +195,9 @@ public class GastoComunController extends MultiActionController {
         GastoComun gc = new GastoComun();
         gc.setFecha(fechaI);
         gc.setMonto(monto);
-        gc.setDescripcion(descipcion);
+        gc.setDescripcion(Integer.parseInt(request.getParameter("descripcion")));
         serviceGC.insertGC(gc);
+
         ModelAndView modelAndView=new ModelAndView("indexAdmin");
         modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
@@ -214,7 +228,7 @@ public class GastoComunController extends MultiActionController {
         Date fechaBusqueda=Date.valueOf(fecha);
         GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
         gc.setMonto((Integer.parseInt(request.getParameter("montoNuevo")))/cantidadUsuarios);
-        gc.setDescripcion(request.getParameter("descripcionNueva"));
+        gc.setDescripcion(Integer.parseInt(request.getParameter("descripcionNueva")));
         serviceGC.updateGC(gc);
 
         ModelAndView modelAndView=new ModelAndView("indexAdmin");

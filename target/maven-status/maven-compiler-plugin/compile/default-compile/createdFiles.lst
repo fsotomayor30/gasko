@@ -1,3 +1,4 @@
+com\usuario\empresa\web\administracion\entidades\TipoGasto.class
 com\usuario\empresa\web\administracion\controladores\PagarController.class
 com\usuario\empresa\web\administracion\controladores\ErrorController.class
 com\usuario\empresa\web\administracion\controladores\GastoComunController.class
@@ -16,4 +17,5 @@ com\usuario\empresa\web\administracion\servicios\MiembroService.class
 com\usuario\empresa\web\administracion\servicios\PagarService.class
 com\usuario\empresa\web\administracion\entidades\Pagar.class
 com\usuario\empresa\web\administracion\entidades\Login.class
+com\usuario\empresa\web\administracion\servicios\TipoGastoService.class
 com\usuario\empresa\web\administracion\controladores\LogoutController.class

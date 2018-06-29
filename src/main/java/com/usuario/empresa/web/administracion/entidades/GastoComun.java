@@ -5,11 +5,11 @@ import java.sql.Date;
 public class GastoComun {
     private Date fecha;
     private int monto;
-    private String descripcion;
+    private int descripcion;
     private int id;
     int generado;
 
-    public GastoComun(Date fecha, int id, int monto, String descripcion) {
+    public GastoComun(Date fecha, int id, int monto, int descripcion) {
         this.fecha = fecha;
         this.id = id;
         this.monto = monto;
@@ -51,11 +51,11 @@ public class GastoComun {
         this.monto = monto;
     }
 
-    public String getDescripcion() {
+    public int getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public void setDescripcion(int descripcion) {
         this.descripcion = descripcion;
     }
 }
