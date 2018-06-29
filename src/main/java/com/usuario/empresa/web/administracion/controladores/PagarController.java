@@ -2,10 +2,12 @@ package com.usuario.empresa.web.administracion.controladores;
 
 import com.usuario.empresa.web.administracion.entidades.GastoComun;
 import com.usuario.empresa.web.administracion.entidades.Pagar;
+import com.usuario.empresa.web.administracion.entidades.TipoGasto;
 import com.usuario.empresa.web.administracion.entidades.Users;
 import com.usuario.empresa.web.administracion.servicios.GastoComunService;
 import com.usuario.empresa.web.administracion.servicios.InicioService;
 import com.usuario.empresa.web.administracion.servicios.PagarService;
+import com.usuario.empresa.web.administracion.servicios.TipoGastoService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.Authentication;
@@ -25,6 +27,7 @@ public class PagarController extends MultiActionController {
 
     private GastoComunService serviceGC = null;
     private PagarService serviceP = null;
+    private TipoGastoService serviceTG = null;
     private InicioService serviceU = null;
     private ApplicationContext ctx = null;
 
@@ -36,31 +39,49 @@ public class PagarController extends MultiActionController {
         serviceGC = (GastoComunService) ctx.getBean("gastosComunesService");
         serviceP = (PagarService) ctx.getBean("pagosService");
         serviceU = (InicioService) ctx.getBean("iniciosService");
-
+        serviceTG = (TipoGastoService) ctx.getBean("tipoGastoService");
     }
 
     public ModelAndView PagoGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        //Se obtienen los datos del usuario en sesion para mostrarlos en la pagina
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
+
+        //se obtienen la tabla pagos
+        List<Pagar> pagars = serviceP.getPagos();
+
+        //se obtienen los gastos comunes
+        List<GastoComun> gastoComunList = serviceGC.getGastosComunes();
+
+        //se obtienen la lista de tipos de gastos comunes
+        List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
+
         ModelAndView modelAndView=new ModelAndView("administradores/PagoGC");
         modelAndView.addObject("usuario",userDetails.getUsername());
+        modelAndView.addObject("pagos", pagars);
+        modelAndView.addObject("gastosComunes", gastoComunList);
+        modelAndView.addObject("tiposGastosComunes", tipoGastos);
         return modelAndView;
     }
 
     public ModelAndView PagoGCE(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //se obtienen los datos del usuario en sesion para mostrarlos en el header
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
-        String username=request.getParameter("username");
-        String fecha=request.getParameter("date");
-        Date fechaBusqueda=Date.valueOf(fecha);
+
+        //se obtienen el id del pago que se requiere pagar
+        int id = Integer.parseInt(request.getParameter("id"));
+
         List<Pagar> pagos=serviceP.getPagos();
         Pagar pagoNuevo=new Pagar();
+
         for (Pagar pago:pagos) {
-            if (pago.getUsername().equals(username) && pago.getFecha().compareTo(fechaBusqueda)==0){
+            if (pago.getId_pagar() == id) {
                 pagoNuevo=pago;
             }
         }
-        pagoNuevo.setEstado("pagado");
+
+        pagoNuevo.setEstado("Pagado");
         serviceP.updatePago(pagoNuevo);
         ModelAndView modelAndView = new ModelAndView("indexAdmin");
         modelAndView.addObject("usuario", userDetails.getUsername());

@@ -20,7 +20,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Monto</th>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col">Tipo</th>
                     </tr>
             [#assign x = 0]
             [#list gastosComunes as gc]
@@ -28,7 +28,11 @@
                 <td>${gc.id}</td>
                 <td>${gc.fecha}</td>
                 <td>${gc.monto}</td>
-                <td>${gc.descripcion}</td>
+                [#list tiposGastos as tp]
+                    [#if gc.descripcion = tp.id]
+                        <td>${tp.descripcion}</td>
+                    [/#if]
+                [/#list]
                 [#if gc.generado=0]
                     [#assign x = x + gc.monto]
                 [/#if]
@@ -80,8 +84,15 @@
 
                         <div class="col-12">
                             <span class="oi oi-list"></span>
-                            <label for="descripcion" class="col-2 col-form-label">Descripcion:</label>
-                            <textarea class="form-control" rows="5" id="descripcion" name="descripcion" required maxlength="50"></textarea>
+                            <label class="mr-sm-2" for="descripcion">Tipo de Gasto Común</label>
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name= "descripcion" id="descripcion">
+                                <option value="1">Luz</option>
+                                <option value="2">Agua</option>
+                                <option value="3">Gas</option>
+                                <option value="4">Salarios</option>
+                                <option value="5">Mantenciones</option>
+                                <option value="6">Otros</option>
+                            </select>
                         </div>
                     </div>
                     <center>

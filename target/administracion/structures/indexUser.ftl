@@ -16,7 +16,8 @@
                 <br></br>
                     <div class="row justify-content-center">
                 <div class="col-6">
-                    <a href="/administracion/usuarios/pantallaInicioMiembro.xml" class="btn btn-primary btn-lg btn-block">
+                    <a href="/administracion/usuarios/pantallaInicioMiembro.xml"
+                       class="btn btn-primary btn-lg btn-block">
                         <img src="/administracion/img/view.png" style="max-width: 80px;" class="img-fluid">
                         Visualizar Gastos Comunes</a>
                     </div>
