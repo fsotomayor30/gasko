@@ -85,7 +85,7 @@
                         <div class="col-12">
                             <span class="oi oi-list"></span>
                             <label class="mr-sm-2" for="descripcion">Tipo de Gasto Común</label>
-                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name= "descripcion" id="descripcion">
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="descripcion" id="descripcion">
                                 <option value="1">Luz</option>
                                 <option value="2">Agua</option>
                                 <option value="3">Gas</option>

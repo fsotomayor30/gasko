@@ -6,6 +6,6 @@
 	<sqlMap resource="ibatis-config/maps/gastos_comunes_sql.xml" />
 	<sqlMap resource="ibatis-config/maps/users_sql.xml" />
 	<sqlMap resource="ibatis-config/maps/pagar_sql.xml" />
-	<sqlMap resource="ibatis-config/maps/tipo_gasto.xml" />
+    <sqlMap resource="ibatis-config/maps/tipo_gasto.xml"/>
 
 </sqlMapConfig>

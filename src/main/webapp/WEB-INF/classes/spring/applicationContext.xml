@@ -56,9 +56,9 @@
 
 	<bean id="iniciosService" class="com.usuario.empresa.web.administracion.servicios.InicioService">
 		<property name="sqlMapClient" ref="sqlMap" />
-    </bean>
+	</bean>
 
-    <bean id="tipoGastoService" class="com.usuario.empresa.web.administracion.servicios.TipoGastoService">
-        <property name="sqlMapClient" ref="sqlMap"/>
-    </bean>
+	<bean id="tipoGastoService" class="com.usuario.empresa.web.administracion.servicios.TipoGastoService">
+		<property name="sqlMapClient" ref="sqlMap"/>
+	</bean>
 </beans>

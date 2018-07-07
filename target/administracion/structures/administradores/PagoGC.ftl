@@ -27,6 +27,7 @@
             [#list pagos as pago]
             <tr>
                 <form action="PagoGCE.xml" method="POST">
+                    <input type="hidden" name="id" id="id" value=${pago.id_pagar}>
                 [#assign x = ""]
                 [#list gastosComunes as gc]
                     [#if gc.fecha?string.MM == pago.fecha?string.MM]
@@ -38,24 +39,22 @@
 
                     [/#if]
                 [/#list]
-                <td>${pago.username}</td>
-                <td>${pago.estado}</td>
-                <td>${pago.monto}</td>
-                <td>${pago.fecha}</td>
-                <td>${x}</td>
+                    <td>${pago.username}</td>
+                    <td>${pago.estado}</td>
+                    <td>${pago.monto}</td>
+                    <td>${pago.fecha}</td>
+                    <td>${x}</td>
 
                 [#if pago.estado = "Pagado"]
-                    <input type="hidden" name="id" id="id" value=${pago.id_pagar}>
                     <td>Ya fue pagado este gasto común</td>
                 [#else]
-                    <input type="hidden" name="id" id="id" value=${pago.id_pagar}>
-                    <td> <input type="submit" class="btn btn-primary" value="Pagar"> </td>
+                    <td><input type="submit" class="btn btn-primary" value="Pagar"></td>
                 [/#if]
             </tr>
             [/#list]
                     </table>
                     <center>
-                       <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
+                        <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
                     </center>
                     <br></br>
                 </div>

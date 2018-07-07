@@ -23,7 +23,7 @@
 	<bean name="/indexUser.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 	<bean name="/inicio.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 	<bean name="/logout.xml"		class="com.usuario.empresa.web.administracion.controladores.LogoutController" />
-
+	<bean name="/administradores/ExportarExcel.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true" />

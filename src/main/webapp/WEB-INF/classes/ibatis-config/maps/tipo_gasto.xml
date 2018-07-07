@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="tiposGastosResult">
+    <!-- resultmaps -->
+    <resultMap id="tipoGastoResult" class="com.usuario.empresa.web.administracion.entidades.TipoGasto">
+        <result property="id" column="ID"/>
+        <result property="descripcion" column="DESCRIPCION"/>
+    </resultMap>
+
+    <!-- sqls -->
+    <select id="getTiposGastos" resultMap="tipoGastoResult">
+        SELECT C.ID, C.DESCRIPCION
+        FROM TIPO_GC AS C
+        ORDER BY C.ID;
+    </select>
+
+    <select id="getTipoGastoDescripcion" parameterClass="String" resultMap="tipoGastoResult">
+        SELECT C.ID, C.DESCRIPCION
+        FROM TIPO_GC AS C
+        WHERE C.DESCRIPCION=#value#;
+    </select>
+
+    <select id="getTipoGastoId" parameterClass="String" resultMap="tipoGastoResult">
+        SELECT C.ID, C.DESCRIPCION
+        FROM TIPO_GC AS C
+        WHERE C.ID=#value#;
+    </select>
+
+    <insert id="insertTipoGasto" parameterClass="com.usuario.empresa.web.administracion.entidades.TipoGasto">
+        INSERT tipo_gc (DESCRIPCION)
+        VALUES (#descripcion#);
+    </insert>
+
+
+</sqlMap>

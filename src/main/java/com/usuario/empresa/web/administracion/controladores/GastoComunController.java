@@ -20,11 +20,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.sql.Date;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.math.BigDecimal;
+import java.net.URLEncoder;
 
 public class GastoComunController extends MultiActionController {
 
-    List<GastoComun> listaGastosComunes;
+	
+	
+	List<GastoComun> listaGastosComunes;
     List<GastoComun> listaGastosComunesResultantes;
 
     private GastoComunService serviceGC = null;
@@ -254,5 +278,67 @@ public class GastoComunController extends MultiActionController {
         modelAndView.addObject("usuario",userDetails.getUsername());
 
         return modelAndView;
+    } 
+    
+    public ModelAndView ExportarExcel(HttpServletRequest request,HttpServletResponse response) throws Exception{
+    	/* Creamos el documento y la primera hoja(Clientes) */
+    	HSSFWorkbook workbook = new HSSFWorkbook();
+    	HSSFSheet sheet = workbook.createSheet("Clientes");
+    	 
+    	/* Configuramos ancho columna 1, las otras ya quedan bien por defecto */
+    	sheet.setColumnWidth((short) 0,(short) 5000);
+    	 
+    	/* Configuramos  los estilos */
+    	HSSFFont bold = workbook.createFont();
+    	bold.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+    	HSSFCellStyle styleBold = workbook.createCellStyle();
+    	styleBold.setFont( bold );
+    	             
+    	 
+    	/* Definimos los datos a guardar */
+    	Vector<Object[]> data = new Vector<Object[]>();
+    	 
+    	data.add( new Object[] {"Name",  "NIS", "Score"} );
+    	data.add( new Object[] {"Pepe Ruvianes",  "010101", "8"} );
+    	data.add( new Object[] {"Juan Loco",  "2576", "7"} );
+    	data.add( new Object[] {"Julia Dos",  "934856", "9"} );
+    	 
+    	/* Guardamos los datos en el documento */
+    	int rownum = 0;
+    	for (Object [] objArr : data) {
+    	    HSSFRow row = sheet.createRow(rownum++);
+    	 
+    	    short cellnum = 0;
+    	    for (Object obj : objArr) {
+    	        HSSFCell cell = row.createCell(cellnum++);
+    	 
+    	        
+    	 
+    	        if(obj instanceof Date)
+    	            cell.setCellValue((Date)obj);
+    	        else if(obj instanceof Boolean)
+    	            cell.setCellValue((Boolean)obj);
+    	        else if(obj instanceof Double)
+    	            cell.setCellValue((Double)obj);
+    	        else if(obj instanceof Integer)
+    	            cell.setCellValue((Integer)obj);
+    	        else
+    	            cell.setCellValue(""+obj);
+    	        }
+    	    }
+    	 
+    	/* Guardamos el archivo, en este caso lo devolvemos por un servlet */
+    	response.setContentType("application/excel");
+    	response.addHeader("Content-disposition", "inline; filename=" + URLEncoder.encode("prueba.xls", "UTF-8"));                  
+    	OutputStream os = response.getOutputStream();
+    	                         
+    	workbook.write(os);
+    	             
+    	os.flush();
+    	os.close();        
+        	
+    	
+    	ModelAndView modelAndView=new ModelAndView("indexAdmin");
+    	return modelAndView;
     }
 }

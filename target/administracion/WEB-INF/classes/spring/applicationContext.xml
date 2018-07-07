@@ -59,6 +59,6 @@
 	</bean>
 
 	<bean id="tipoGastoService" class="com.usuario.empresa.web.administracion.servicios.TipoGastoService">
-		<property name="sqlMapClient" ref="sqlMap" />
+		<property name="sqlMapClient" ref="sqlMap"/>
 	</bean>
 </beans>
