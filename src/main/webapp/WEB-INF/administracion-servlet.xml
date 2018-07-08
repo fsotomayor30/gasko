@@ -10,13 +10,15 @@
 	<bean name="/usuarios/ver.xml" 	class="com.usuario.empresa.web.administracion.controladores.UsuarioController" />
 	<bean name="/usuarios/pantallaInicioMiembro.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/usuarios/buscarFecha.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/administradores/buscarFecha.xml"
+		  class="com.usuario.empresa.web.administracion.controladores.GastoComunController"/>
 	<bean name="/administradores/VerGCAdmin.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/ingresoGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/modificarGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/PagoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
 	<bean name="/administradores/PagoGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
-    <bean name="/administradores/generarPago.xml"
-          class="com.usuario.empresa.web.administracion.controladores.PagarController"/>
+	<bean name="/administradores/generarPago.xml"
+		  class="com.usuario.empresa.web.administracion.controladores.PagarController"/>
 	<bean name="/administradores/eliminarGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/IngresoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/modificarGC.xml"		class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />

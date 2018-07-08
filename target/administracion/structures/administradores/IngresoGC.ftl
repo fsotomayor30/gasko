@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-10 offset-md-1">
         <div class="card" style="background: #EAEAEA">
-            <center><h1>Gasto Comun Mes Actual</h1></center>
+            <center><h1>Gasto Comun Mes ${mes}</h1></center>
 
             <div class="card-body">
 
@@ -21,27 +21,44 @@
                         <th scope="col">Fecha</th>
                         <th scope="col">Monto</th>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Modificar</th>
                     </tr>
             [#assign x = 0]
+            [#assign aDateTime = .now]
+            [#assign aDate = aDateTime?date]
             [#list gastosComunes as gc]
-            <tr>
-                <td>${gc.id}</td>
-                <td>${gc.fecha}</td>
-                <td>${gc.monto}</td>
-                [#list tiposGastos as tp]
-                    [#if gc.descripcion = tp.id]
-                        <td>${tp.descripcion}</td>
+                [#if gc.fecha?string.MM == aDate?string.MM]
+                    <tr>
+                        <td>${gc.id}</td>
+                        <td>${gc.fecha}</td>
+                        <td>${gc.monto}</td>
+                    [#list tiposGastos as tp]
+                        [#if gc.descripcion = tp.id]
+                            <td>${tp.descripcion}</td>
+                        [/#if]
+                    [/#list]
+                    [#if gc.generado=0]
+                        [#assign x = x + gc.monto]
                     [/#if]
-                [/#list]
-                [#if gc.generado=0]
-                    [#assign x = x + gc.monto]
+                        [#if gc.generado=1] <td>El Gasto Comun ya esta generado</td>
+                        [#else]
+                        <form action="eliminarGC.xml" method="POST">
+                            <td><input type="hidden" name="id" id="id" value=${gc.id}> <input type="submit" class="btn btn-primary" value="Eliminar"></td>
+                        </form>
+                        [/#if]
+                    [#if gc.generado=1] <td>El Gasto Comun ya esta generado</td>
+                    [#else]
+                        <form action="modificarGC.xml" method="POST">
+                            <td><input type="hidden" name="id" id="id" value=${gc.id}> <input type="submit" class="btn btn-primary" value="Modificar"></td>
+                        </form>
+                    [/#if]
+                    </tr>
                 [/#if]
-
-            </tr>
 
             [/#list]
                     <tr style="text-align: right">
-                        <td colspan="5"><h6>Total Gastos Común no generados: ${x}</h6></td>
+                        <td colspan="6"><h6>Total Gastos Común no generados: ${x}</h6></td>
                     </tr>
                 </table>
 

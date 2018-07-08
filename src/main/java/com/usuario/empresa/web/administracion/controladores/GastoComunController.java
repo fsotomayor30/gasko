@@ -5,7 +5,6 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.usuario.empresa.web.administracion.entidades.GastoComun;
 import com.usuario.empresa.web.administracion.entidades.Pagar;
@@ -15,6 +14,8 @@ import com.usuario.empresa.web.administracion.servicios.GastoComunService;
 import com.usuario.empresa.web.administracion.servicios.InicioService;
 import com.usuario.empresa.web.administracion.servicios.PagarService;
 import com.usuario.empresa.web.administracion.servicios.TipoGastoService;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.Authentication;
@@ -25,29 +26,13 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.sql.Date;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.math.BigDecimal;
-import java.net.URLEncoder;
 
 public class GastoComunController extends MultiActionController {
 
@@ -59,8 +44,10 @@ public class GastoComunController extends MultiActionController {
     private TipoGastoService serviceTG = null;
     private PagarService serviceP = null;
     private InicioService serviceU=null;
+
     private ApplicationContext ctx = null;
     private String usuario;
+    private Users objetoUsers = new Users();
 
     /**
      * constructor
@@ -77,6 +64,7 @@ public class GastoComunController extends MultiActionController {
         serviceP = (PagarService) ctx.getBean("pagosService");
         serviceU=(InicioService) ctx.getBean("iniciosService");
         serviceTG = (TipoGastoService) ctx.getBean("tipoGastoService");
+
     }
 
 
@@ -98,60 +86,82 @@ public class GastoComunController extends MultiActionController {
         //Se obtienen los gastso comunes
         listaGastosComunes=serviceGC.getGastosComunes();
 
+        //se obtienen los tipos de gastos comunes
+        List<TipoGasto> tipoGastosComunes = serviceTG.getTiposGastos();
 
         ModelAndView modelAndView=new ModelAndView("usuarios/pantallaInicioMiembro");
         modelAndView.addObject("gastosComunes", listaGastosComunes);
         modelAndView.addObject("usuario",userDetails.getUsername());
+        modelAndView.addObject("tiposGastosComunes", tipoGastosComunes);
         modelAndView.addObject("pagos",listaPagosResultantes);
         return modelAndView;
     }
 
     public ModelAndView buscarFecha(HttpServletRequest request,
                                     HttpServletResponse response) throws Exception {
-        List<GastoComun>resultadoDesde=new ArrayList<GastoComun>();
-        List<GastoComun>resultadoHasta=new ArrayList<GastoComun>();
-        List <Pagar> listaPagosResultantes=new ArrayList<Pagar>();
-        List<Pagar> listaPagos=new ArrayList<Pagar>();
-        listaGastosComunesResultantes.clear();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+        objetoUsers = serviceU.getUsers(userDetails.getUsername());
+        int rol = objetoUsers.getRol();
+
+        List<Pagar> resultadoDesde = new ArrayList<Pagar>();
+        List<Pagar> resultadoHasta = new ArrayList<Pagar>();
+
+        List<Pagar> listaPagosResultantesPorUsuario = new ArrayList<Pagar>();
+        List<Pagar> listaPagosResultantesEntreFechas = new ArrayList<Pagar>();
+        List<Pagar> listaPagosResultantes = new ArrayList<Pagar>();
+        List<Pagar> listaPagos = serviceP.getPagos();
+        listaPagosResultantesPorUsuario.clear();
         listaGastosComunes.clear();
-        listaPagosResultantes.clear();
+        listaGastosComunes = serviceGC.getGastosComunes();
         resultadoDesde.clear();
         resultadoHasta.clear();
-        listaPagos.clear();
-        Authentication auth= SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails=(UserDetails) auth.getPrincipal();
         usuario = userDetails.getUsername();
-        listaPagos=serviceP.getPagos();
-        for (Pagar Pagos:listaPagos) {
-            if (Pagos.getUsername().equalsIgnoreCase(usuario)){
-                listaPagosResultantes.add(Pagos);
-            }
-        }
 
-        resultadoDesde=serviceGC.getGCFechaDesde(request.getParameter("date_desde"));
-        resultadoHasta=serviceGC.getGCFechaHasta(request.getParameter("date_hasta"));
-
-        for(GastoComun gc1: resultadoDesde){
-            for(GastoComun gc2: resultadoHasta){
-                if (gc1.getFecha().compareTo(gc2.getFecha())==0) {
-                    listaGastosComunes.add(gc1);
+        if (rol == 2) {
+            listaPagosResultantesPorUsuario = serviceP.getPagos();
+        } else {
+            for (Pagar Pagos : listaPagos) {
+                if (Pagos.getUsername().equalsIgnoreCase(usuario)) {
+                    listaPagosResultantesPorUsuario.add(Pagos);
                 }
             }
         }
 
-        for (Pagar listaPago:listaPagosResultantes) {
-            for (GastoComun gastoComun: listaGastosComunes) {
-                if (listaPago.getFecha().compareTo(gastoComun.getFecha())== 0){
-                    listaGastosComunesResultantes.add(gastoComun);
+        resultadoDesde = serviceP.getPagoFechaDesde(request.getParameter("date_desde"));
+        resultadoHasta = serviceP.getPagoFechaHasta(request.getParameter("date_hasta"));
 
+        //se obtienen los tipos de gastos comunes
+        List<TipoGasto> tipoGastosComunes = serviceTG.getTiposGastos();
+
+
+        for (Pagar p1 : resultadoDesde) {
+            for (Pagar p2 : resultadoHasta) {
+                if (p1.getId_pagar() == p2.getId_pagar()) {
+                    listaPagosResultantesEntreFechas.add(p1);
                 }
             }
         }
 
-        ModelAndView modelAndView=new ModelAndView("usuarios/pantallaInicioMiembro");
-        modelAndView.addObject("gastosComunes",listaGastosComunesResultantes);
+        for (Pagar listaPagosEntreFechas : listaPagosResultantesEntreFechas) {
+            for (Pagar listaPagosPorUsuario : listaPagosResultantesPorUsuario) {
+                if (listaPagosEntreFechas.getId_pagar() == listaPagosPorUsuario.getId_pagar()) {
+                    listaPagosResultantes.add(listaPagosEntreFechas);
+
+                }
+            }
+        }
+        ModelAndView modelAndView;
+        if (rol == 1) {
+            modelAndView = new ModelAndView("usuarios/pantallaInicioMiembro");
+        } else {
+            modelAndView = new ModelAndView("administradores/VerGCAdmin");
+        }
+
+        modelAndView.addObject("gastosComunes", listaGastosComunes);
         modelAndView.addObject("usuario",userDetails.getUsername());
         modelAndView.addObject("pagos",listaPagosResultantes);
+        modelAndView.addObject("tiposGastosComunes", tipoGastosComunes);
         return modelAndView;
 
     }
@@ -200,8 +210,55 @@ public class GastoComunController extends MultiActionController {
         List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
 
         ModelAndView modelAndView=new ModelAndView("administradores/IngresoGC");
+        String mesActual = "";
+
+        java.util.Date fechaActual = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(fechaActual.getTime());
+        int mesActualInt = sqlDate.getMonth() + 1;
+
+        switch (mesActualInt) {
+            case 1:
+                mesActual = "Enero";
+                break;
+            case 2:
+                mesActual = "Febrero";
+                break;
+            case 3:
+                mesActual = "Marzo";
+                break;
+            case 4:
+                mesActual = "Abril";
+                break;
+            case 5:
+                mesActual = "Mayo";
+                break;
+            case 6:
+                mesActual = "Junio";
+                break;
+            case 7:
+                mesActual = "Julio";
+                break;
+            case 8:
+                mesActual = "Agosto";
+                break;
+            case 9:
+                mesActual = "Septiembre";
+                break;
+            case 10:
+                mesActual = "Octubre";
+                break;
+            case 11:
+                mesActual = "Noviembre";
+                break;
+            case 12:
+                mesActual = "Diciembre";
+                break;
+
+        }
+
         modelAndView.addObject("gastosComunes", gc);
         modelAndView.addObject("tiposGastos", tipoGastos);
+        modelAndView.addObject("mes", mesActual);
         modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
     }
@@ -235,13 +292,24 @@ public class GastoComunController extends MultiActionController {
     public ModelAndView modificarGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
-
-        String fecha=request.getParameter("fecha");
-        Date fechaBusqueda=Date.valueOf(fecha);
-        GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
-
+        GastoComun gcAux = new GastoComun();
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<GastoComun> list = serviceGC.getGastosComunes();
+        for (GastoComun gc : list) {
+            if (gc.getId() == id) {
+                gcAux = gc;
+            }
+        }
+        List<TipoGasto> tipoGastoList = serviceTG.getTiposGastos();
+        String tipoGasto = "";
+        for (TipoGasto tp : tipoGastoList) {
+            if (tp.getId() == gcAux.getDescripcion()) {
+                tipoGasto = tp.getDescripcion();
+            }
+        }
         ModelAndView modelAndView=new ModelAndView("administradores/modificarGC");
-        modelAndView.addObject("gastoComun",gc);
+        modelAndView.addObject("gastoComun", gcAux);
+        modelAndView.addObject("tipoGasto", tipoGasto);
         modelAndView.addObject("usuario",userDetails.getUsername());
         return modelAndView;
     }
@@ -249,15 +317,17 @@ public class GastoComunController extends MultiActionController {
     public ModelAndView modificarGCE(HttpServletRequest request,HttpServletResponse response) throws Exception {
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
-
-        int cantidadUsuarios=serviceU.getTotalUsuariosNormales();
-
-        String fecha=request.getParameter("date");
-        Date fechaBusqueda=Date.valueOf(fecha);
-        GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
-        gc.setMonto((Integer.parseInt(request.getParameter("montoNuevo")))/cantidadUsuarios);
-        gc.setDescripcion(Integer.parseInt(request.getParameter("descripcionNueva")));
-        serviceGC.updateGC(gc);
+        int id = Integer.parseInt(request.getParameter("id"));
+        GastoComun gcAux = new GastoComun();
+        List<GastoComun> gastoComunList = serviceGC.getGastosComunes();
+        for (GastoComun gc : gastoComunList) {
+            if (gc.getId() == id) {
+                gcAux = gc;
+            }
+        }
+        gcAux.setMonto((Integer.parseInt(request.getParameter("montoNuevo"))));
+        gcAux.setDescripcion(Integer.parseInt(request.getParameter("descripcionNueva")));
+        serviceGC.updateGC(gcAux);
 
         ModelAndView modelAndView=new ModelAndView("indexAdmin");
         modelAndView.addObject("usuario",userDetails.getUsername());
@@ -265,17 +335,8 @@ public class GastoComunController extends MultiActionController {
     }
 
     public ModelAndView eliminarGC(HttpServletRequest request,HttpServletResponse response) throws Exception {
-        String fecha=request.getParameter("fecha");
-        Date fechaBusqueda=Date.valueOf(fecha);
-        GastoComun gc=serviceGC.getGastoComun(fechaBusqueda);
-        String username=request.getParameter("username");
-        List<Pagar> listaPagos=serviceP.getPagos();
-        for (Pagar pagos:listaPagos) {
-            if (pagos.getFecha().compareTo(gc.getFecha())==0 && pagos.getUsername().equals(username)) {
-                serviceP.deletePago(pagos);
-            }
-        }
-        serviceGC.deleteGC(fecha);
+        int id = Integer.parseInt(request.getParameter("id"));
+        serviceGC.deleteGC(id);
         ModelAndView modelAndView=new ModelAndView("indexAdmin");
         Authentication auth= SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails=(UserDetails) auth.getPrincipal();
@@ -283,7 +344,6 @@ public class GastoComunController extends MultiActionController {
 
         return modelAndView;
     }
-
 
     public ModelAndView ExportarExcel(HttpServletRequest request, HttpServletResponse response) throws Exception{
         /* Creamos el documento y la primera hoja(Clientes) */
@@ -458,7 +518,6 @@ public class GastoComunController extends MultiActionController {
 
         try {
             Document document = new Document();
-            /* Basic PDF Creation inside servlet */
             PdfWriter.getInstance(document, out);
             document.open();
 

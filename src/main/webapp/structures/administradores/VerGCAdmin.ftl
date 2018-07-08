@@ -9,7 +9,7 @@
     <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
 </nav>
 <br></br>
-<form action="#" method="POST">
+<form action="buscarFecha.xml" method="POST">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
