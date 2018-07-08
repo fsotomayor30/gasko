@@ -29,6 +29,7 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
@@ -57,7 +58,7 @@ public class GastoComunController extends MultiActionController {
     private InicioService serviceU=null;
     private ApplicationContext ctx = null;
     private String usuario;
-
+    
     /**
      * constructor
      */
@@ -280,28 +281,92 @@ public class GastoComunController extends MultiActionController {
         return modelAndView;
     } 
     
+      
     public ModelAndView ExportarExcel(HttpServletRequest request,HttpServletResponse response) throws Exception{
     	/* Creamos el documento y la primera hoja(Clientes) */
     	HSSFWorkbook workbook = new HSSFWorkbook();
     	HSSFSheet sheet = workbook.createSheet("Clientes");
     	 
     	/* Configuramos ancho columna 1, las otras ya quedan bien por defecto */
-    	sheet.setColumnWidth((short) 0,(short) 5000);
+    	sheet.setColumnWidth((short) 0,(short) 7000); 
+    	sheet.setColumnWidth((short) 1,(short) 7000); 
+    	sheet.setColumnWidth((short) 2,(short) 7000); 
+    	sheet.setColumnWidth((short) 3,(short) 7000); 
+    	sheet.setColumnWidth((short) 4,(short) 7000); 
     	 
     	/* Configuramos  los estilos */
     	HSSFFont bold = workbook.createFont();
+    	HSSFFont headerFont = workbook.createFont();;
     	bold.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
     	HSSFCellStyle styleBold = workbook.createCellStyle();
-    	styleBold.setFont( bold );
-    	             
-    	 
+    	HSSFCellStyle styleHeader = workbook.createCellStyle();
+    	HSSFCellStyle filaPar = workbook.createCellStyle();
+    	HSSFCellStyle filaImpar = workbook.createCellStyle();
+    	styleBold.setFont( bold ); 
+    	headerFont.setColor(HSSFColor.WHITE.index);
+    	headerFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+    	//estilo de la cabecera
+    	styleHeader.setFont(headerFont);
+    	styleHeader.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+    	styleHeader.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+    	styleHeader.setFillForegroundColor(HSSFColor.BLUE.index);
+    	
+    	styleHeader.setBorderTop(HSSFCellStyle.BORDER_THIN);
+    	styleHeader.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+    	styleHeader.setBorderRight(HSSFCellStyle.BORDER_THIN);
+    	styleHeader.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+
+    	styleHeader.setTopBorderColor(HSSFColor.WHITE.index);
+    	styleHeader.setLeftBorderColor(HSSFColor.WHITE.index);
+    	styleHeader.setRightBorderColor(HSSFColor.WHITE.index);
+    	styleHeader.setBottomBorderColor(HSSFColor.WHITE.index);
+    	
+    	//estilo de las filas pares
+    	filaPar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+    	filaPar.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+    	filaPar.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
+    	//estilo de las filas impares
+    	filaImpar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+    	filaImpar.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+    	filaImpar.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
+    	
     	/* Definimos los datos a guardar */
     	Vector<Object[]> data = new Vector<Object[]>();
     	 
-    	data.add( new Object[] {"Name",  "NIS", "Score"} );
-    	data.add( new Object[] {"Pepe Ruvianes",  "010101", "8"} );
+    	data.add( new Object[] {"NOMBRE DEL MIEMBRO",  "ESTADO", "MONTO", "FECHA GENERACION PAGO", "TIPO"} );
+    	
+    	/*Creamos y llenamos listas con datos de la BD que extraemos gracias a los servicios*/
+    	List <GastoComun> gcadmin=new ArrayList<GastoComun>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista gcadmin
+        gcadmin.clear();
+        List<Pagar> pgadmin=new ArrayList<Pagar>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista pgadmin
+        pgadmin.clear();
+
+        //lleno ambas listas con la lista entregada por cada servicio
+        gcadmin=serviceGC.getGastosComunes();
+        pgadmin=serviceP.getPagos(); 
+      //Se obtienen los tipos de gastos comunes
+        List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
+        
+        for(int i=0; i<pgadmin.size();i++) {
+        	String descripcion ="";
+        	for(int j=0; j<gcadmin.size();j++) { 
+        		if(gcadmin.get(j).getFecha().getMonth() == pgadmin.get(i).getFecha().getMonth()) {
+        			for(int k=0; k<tipoGastos.size();k++) {
+        				if(gcadmin.get(j).getDescripcion()==tipoGastos.get(k).getId()) {
+        					descripcion = descripcion + tipoGastos.get(k).getDescripcion();
+        				}
+        				
+        			}
+        		}
+        	}
+        	data.add( new Object[] {pgadmin.get(i).getUsername(),pgadmin.get(i).getEstado(), pgadmin.get(i).getMonto(),pgadmin.get(i).getFecha().toString(),descripcion} );
+        }
+    	
+    	/*data.add( new Object[] {"Pepe Ruvianes",  "010101", "8"} );
     	data.add( new Object[] {"Juan Loco",  "2576", "7"} );
-    	data.add( new Object[] {"Julia Dos",  "934856", "9"} );
+    	data.add( new Object[] {"Julia Dos",  "934856", "9"} );*/
     	 
     	/* Guardamos los datos en el documento */
     	int rownum = 0;
@@ -311,9 +376,9 @@ public class GastoComunController extends MultiActionController {
     	    short cellnum = 0;
     	    for (Object obj : objArr) {
     	        HSSFCell cell = row.createCell(cellnum++);
-    	 
-    	        
-    	 
+    	        if ( row.getRowNum()==0 ) cell.setCellStyle( styleHeader );
+    	        if ( row.getRowNum()%2==0 && row.getRowNum()!=0) cell.setCellStyle( filaPar );
+    	        if ( row.getRowNum()%2!=0 && row.getRowNum()!=0) cell.setCellStyle( filaImpar );
     	        if(obj instanceof Date)
     	            cell.setCellValue((Date)obj);
     	        else if(obj instanceof Boolean)
@@ -329,7 +394,7 @@ public class GastoComunController extends MultiActionController {
     	 
     	/* Guardamos el archivo, en este caso lo devolvemos por un servlet */
     	response.setContentType("application/excel");
-    	response.addHeader("Content-disposition", "inline; filename=" + URLEncoder.encode("prueba.xls", "UTF-8"));                  
+    	response.addHeader("Content-disposition", "inline; filename=" + URLEncoder.encode("Informe_de_gastos_comunes.xls", "UTF-8"));                  
     	OutputStream os = response.getOutputStream();
     	                         
     	workbook.write(os);
