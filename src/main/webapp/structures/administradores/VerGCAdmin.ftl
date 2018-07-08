@@ -71,12 +71,18 @@
     </table>
 </div>
 <center>
+
 	<form action="ExportarExcel.xml" method="POST">
 		<input type="submit" class="btn btn-primary" value="Exportar Excel">
-	    <a href="#" class="btn btn-primary">Exportar PDF</a>
+    </form>
+    <br>
+    <form action="ExportarPDF.xml" method="POST">
+        <input type="submit" class="btn btn-primary" value="Exportar PDF">
+    </form>
+    <br>
 	    <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
-	</form>
-    
+
+
 </center>
 <br></br>
                 </div>
