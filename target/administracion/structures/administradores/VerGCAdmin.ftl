@@ -9,7 +9,7 @@
     <a class="form-inline" href="/administracion/logout.xml">Cerrar sesión</a>
 </nav>
 <br></br>
-<form action="#" method="POST">
+<form action="buscarFecha.xml" method="POST">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
@@ -71,12 +71,18 @@
     </table>
 </div>
 <center>
+
 	<form action="ExportarExcel.xml" method="POST">
 		<input type="submit" class="btn btn-primary" value="Exportar Excel">
-	    <a href="#" class="btn btn-primary">Exportar PDF</a>
+    </form>
+    <br>
+    <form action="ExportarPDF.xml" method="POST">
+        <input type="submit" class="btn btn-primary" value="Exportar PDF">
+    </form>
+    <br>
 	    <a href="/administracion/indexAdmin.xml" class="btn btn-success">Volver</a>
-	</form>
-    
+
+
 </center>
 <br></br>
                 </div>

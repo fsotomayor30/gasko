@@ -39,10 +39,10 @@
                         <div class="col-12">
                             <table class="table table-striped">
                                 <tr>
-                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Fecha Generación de Pago</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Monto</th>
-                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Tipo</th>
                                 </tr>
 
                     [#list pagos as pago]
@@ -50,7 +50,11 @@
                         [#assign x = ""]
                         [#list gastosComunes as gc]
                             [#if gc.fecha?string.MM == pago.fecha?string.MM]
-                                [#assign x= "${x} "+ gc.descripcion]
+                                [#list tiposGastosComunes as tp]
+                                    [#if gc.descripcion = tp.id]
+                                [#assign x= "${x} "+ tp.descripcion]
+                                    [/#if]
+                                [/#list]
                             [/#if]
                         [/#list]
                             <td>${pago.fecha}</td>

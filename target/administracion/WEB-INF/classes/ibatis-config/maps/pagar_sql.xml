@@ -30,6 +30,16 @@
         DELETE FROM pagar
         WHERE FECHA=#fecha# AND USERNAME=#username#;
     </delete>
+    <select id="getPagoFechaDesde" parameterClass="String" resultMap="pagarResult">
+        SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME, C.MONTO
+        FROM pagar AS C
+        WHERE C.FECHA&gt;#value#;
+    </select>
+    <select id="getPagoFechaHasta" parameterClass="String" resultMap="pagarResult">
+        SELECT C.ID_PAGAR, C.ESTADO, C.FECHA, C.USERNAME, C.MONTO
+        FROM pagar AS C
+        WHERE C.FECHA&lt;#value#;
+    </select>
 
 
 </sqlMap>

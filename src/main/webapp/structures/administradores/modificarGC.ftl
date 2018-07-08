@@ -16,6 +16,7 @@
 
                 <div class="card-body">
                     <div class="card" style="background: #EAEAEA">
+                        <input type="hidden" name="id" id="id" value=${gastoComun.id}>
                         <h3>Datos Originales</h3>
                         <div class="col-12">
                             <span class="oi oi-calendar"></span>
@@ -24,8 +25,9 @@
                         </div>
                         <div class="col-12">
                             <span class="oi oi-list"></span>
-                            <label for="descripcion" class="col-2 col-form-label">Descripcion:</label>
-                            <textarea class="form-control"  rows="5" readonly id="descripcion" name="descripcion"  maxlength="50">${gastoComun.descripcion}</textarea>
+                            <label for="tipo" class="col-2 col-form-label">Tipo:</label>
+                            <textarea class="form-control" rows="5" readonly id="tipo" name="tipo"
+                                      maxlength="50">${tipoGasto}</textarea>
                         </div>
                         <div class="col-12">
                             <span class="oi oi-dollar"></span>
@@ -46,8 +48,16 @@
                                 </div>
                             <div class="col-12">
                                 <span class="oi oi-list"></span>
-                                <label for="descripcion" class="col-2 col-form-label">Descripcion:</label>
-                                <textarea class="form-control" rows="5" id="descripcion" name="descripcionNueva" required maxlength="50"></textarea>
+                                <label class="mr-sm-2" for="descripcion">Tipo de Gasto Común</label>
+                                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="descripcionNueva"
+                                        id="descripcion">
+                                    <option value="1">Luz</option>
+                                    <option value="2">Agua</option>
+                                    <option value="3">Gas</option>
+                                    <option value="4">Salarios</option>
+                                    <option value="5">Mantenciones</option>
+                                    <option value="6">Otros</option>
+                                </select>
                             </div>
                             <br></br>
                             <center>

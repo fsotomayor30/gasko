@@ -10,13 +10,13 @@
 	<bean name="/usuarios/ver.xml" 	class="com.usuario.empresa.web.administracion.controladores.UsuarioController" />
 	<bean name="/usuarios/pantallaInicioMiembro.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/usuarios/buscarFecha.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/administradores/buscarFecha.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/VerGCAdmin.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/ingresoGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/modificarGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/PagoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
 	<bean name="/administradores/PagoGCE.xml" 	class="com.usuario.empresa.web.administracion.controladores.PagarController" />
-    <bean name="/administradores/generarPago.xml"
-          class="com.usuario.empresa.web.administracion.controladores.PagarController"/>
+    <bean name="/administradores/generarPago.xml" class="com.usuario.empresa.web.administracion.controladores.PagarController"/>
 	<bean name="/administradores/eliminarGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/IngresoGC.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
 	<bean name="/administradores/modificarGC.xml"		class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
@@ -24,6 +24,8 @@
 	<bean name="/inicio.xml"		class="com.usuario.empresa.web.administracion.controladores.InicioController" />
 	<bean name="/logout.xml"		class="com.usuario.empresa.web.administracion.controladores.LogoutController" />
 	<bean name="/administradores/ExportarExcel.xml" 	class="com.usuario.empresa.web.administracion.controladores.GastoComunController" />
+	<bean name="/administradores/ExportarPDF.xml"
+		  class="com.usuario.empresa.web.administracion.controladores.GastoComunController"/>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true" />

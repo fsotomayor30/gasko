@@ -34,8 +34,9 @@ public class GastoComunService extends ServiceImpl{
     public void updateGC(GastoComun gc) throws Exception {
         sqlMap.update("updateGC", gc);
     }
-    public void deleteGC(String fecha) throws Exception {
-        sqlMap.delete("deleteGC", fecha);
+
+    public void deleteGC(int id) throws Exception {
+        sqlMap.delete("deleteGC", id);
     }
 
 

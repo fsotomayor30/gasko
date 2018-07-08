@@ -26,8 +26,6 @@
 
             [#list pagos as pago]
             <tr>
-                <form action="PagoGCE.xml" method="POST">
-                    <input type="hidden" name="id" id="id" value=${pago.id_pagar}>
                 [#assign x = ""]
                 [#list gastosComunes as gc]
                     [#if gc.fecha?string.MM == pago.fecha?string.MM]
@@ -48,7 +46,9 @@
                 [#if pago.estado = "Pagado"]
                     <td>Ya fue pagado este gasto común</td>
                 [#else]
-                    <td><input type="submit" class="btn btn-primary" value="Pagar"></td>
+                    <form action="PagoGCE.xml" method="POST">
+                        <td><input type="hidden" name="id" id="id" value=${pago.id_pagar}> <input type="submit" class="btn btn-primary" value="Pagar"></td>
+                    </form>
                 [/#if]
             </tr>
             [/#list]
@@ -61,5 +61,6 @@
             </div>
         </div>
     </div>
-</form>
+
+</body>
 [/@structure]

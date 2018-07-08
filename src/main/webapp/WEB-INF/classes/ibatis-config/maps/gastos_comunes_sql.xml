@@ -47,7 +47,7 @@
 
     <delete id="deleteGC" parameterClass="String">
         DELETE FROM gasto_comun
-        WHERE FECHA=#value#;
+        WHERE ID=#value#;
     </delete>
 
 </sqlMap>

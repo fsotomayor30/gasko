@@ -33,4 +33,12 @@ public class PagarService extends ServiceImpl{
     public void deletePago(Pagar pago) throws Exception {
         sqlMap.delete("deletePago", pago);
     }
+
+    public List<Pagar> getPagoFechaDesde(String fechaPago) throws Exception {
+        return (List<Pagar>) sqlMap.queryForList("getPagoFechaDesde", fechaPago);
+    }
+
+    public List<Pagar> getPagoFechaHasta(String fechaPago) throws Exception {
+        return (List<Pagar>) sqlMap.queryForList("getPagoFechaHasta", fechaPago);
+    }
 }
