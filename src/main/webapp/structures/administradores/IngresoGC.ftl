@@ -23,22 +23,24 @@
                         <th scope="col">Tipo</th>
                     </tr>
             [#assign x = 0]
+            [#assign aDateTime = .now]
+            [#assign aDate = aDateTime?date]
             [#list gastosComunes as gc]
-            <tr>
-                <td>${gc.id}</td>
-                <td>${gc.fecha}</td>
-                <td>${gc.monto}</td>
-                [#list tiposGastos as tp]
-                    [#if gc.descripcion = tp.id]
-                        <td>${tp.descripcion}</td>
+                [#if gc.fecha?string.MM == aDate?string.MM]
+                    <tr>
+                        <td>${gc.id}</td>
+                        <td>${gc.fecha}</td>
+                        <td>${gc.monto}</td>
+                    [#list tiposGastos as tp]
+                        [#if gc.descripcion = tp.id]
+                            <td>${tp.descripcion}</td>
+                        [/#if]
+                    [/#list]
+                    [#if gc.generado=0]
+                        [#assign x = x + gc.monto]
                     [/#if]
-                [/#list]
-                [#if gc.generado=0]
-                    [#assign x = x + gc.monto]
+                    </tr>
                 [/#if]
-
-            </tr>
-
             [/#list]
                     <tr style="text-align: right">
                         <td colspan="5"><h6>Total Gastos Común no generados: ${x}</h6></td>

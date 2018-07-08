@@ -1,5 +1,12 @@
 package com.usuario.empresa.web.administracion.controladores;
 
+
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.DottedLineSeparator;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.usuario.empresa.web.administracion.entidades.GastoComun;
 import com.usuario.empresa.web.administracion.entidades.Pagar;
 import com.usuario.empresa.web.administracion.entidades.TipoGasto;
@@ -18,6 +25,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -38,18 +46,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
 
 public class GastoComunController extends MultiActionController {
 
-	
-	
-	List<GastoComun> listaGastosComunes;
+
+    List<GastoComun> listaGastosComunes;
     List<GastoComun> listaGastosComunesResultantes;
 
     private GastoComunService serviceGC = null;
@@ -58,7 +61,7 @@ public class GastoComunController extends MultiActionController {
     private InicioService serviceU=null;
     private ApplicationContext ctx = null;
     private String usuario;
-    
+
     /**
      * constructor
      */
@@ -279,64 +282,64 @@ public class GastoComunController extends MultiActionController {
         modelAndView.addObject("usuario",userDetails.getUsername());
 
         return modelAndView;
-    } 
-    
-      
-    public ModelAndView ExportarExcel(HttpServletRequest request,HttpServletResponse response) throws Exception{
-    	/* Creamos el documento y la primera hoja(Clientes) */
-    	HSSFWorkbook workbook = new HSSFWorkbook();
-    	HSSFSheet sheet = workbook.createSheet("Clientes");
-    	 
-    	/* Configuramos ancho columna 1, las otras ya quedan bien por defecto */
-    	sheet.setColumnWidth((short) 0,(short) 7000); 
-    	sheet.setColumnWidth((short) 1,(short) 7000); 
-    	sheet.setColumnWidth((short) 2,(short) 7000); 
-    	sheet.setColumnWidth((short) 3,(short) 7000); 
-    	sheet.setColumnWidth((short) 4,(short) 7000); 
-    	 
-    	/* Configuramos  los estilos */
-    	HSSFFont bold = workbook.createFont();
-    	HSSFFont headerFont = workbook.createFont();;
-    	bold.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-    	HSSFCellStyle styleBold = workbook.createCellStyle();
-    	HSSFCellStyle styleHeader = workbook.createCellStyle();
-    	HSSFCellStyle filaPar = workbook.createCellStyle();
-    	HSSFCellStyle filaImpar = workbook.createCellStyle();
-    	styleBold.setFont( bold ); 
-    	headerFont.setColor(HSSFColor.WHITE.index);
-    	headerFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-    	//estilo de la cabecera
-    	styleHeader.setFont(headerFont);
-    	styleHeader.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-    	styleHeader.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-    	styleHeader.setFillForegroundColor(HSSFColor.BLUE.index);
-    	
-    	styleHeader.setBorderTop(HSSFCellStyle.BORDER_THIN);
-    	styleHeader.setBorderLeft(HSSFCellStyle.BORDER_THIN);
-    	styleHeader.setBorderRight(HSSFCellStyle.BORDER_THIN);
-    	styleHeader.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+    }
 
-    	styleHeader.setTopBorderColor(HSSFColor.WHITE.index);
-    	styleHeader.setLeftBorderColor(HSSFColor.WHITE.index);
-    	styleHeader.setRightBorderColor(HSSFColor.WHITE.index);
-    	styleHeader.setBottomBorderColor(HSSFColor.WHITE.index);
-    	
-    	//estilo de las filas pares
-    	filaPar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-    	filaPar.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-    	filaPar.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
-    	//estilo de las filas impares
-    	filaImpar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-    	filaImpar.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-    	filaImpar.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-    	
-    	/* Definimos los datos a guardar */
-    	Vector<Object[]> data = new Vector<Object[]>();
-    	 
-    	data.add( new Object[] {"NOMBRE DEL MIEMBRO",  "ESTADO", "MONTO", "FECHA GENERACION PAGO", "TIPO"} );
-    	
-    	/*Creamos y llenamos listas con datos de la BD que extraemos gracias a los servicios*/
-    	List <GastoComun> gcadmin=new ArrayList<GastoComun>();
+
+    public ModelAndView ExportarExcel(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        /* Creamos el documento y la primera hoja(Clientes) */
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Clientes");
+
+        /* Configuramos ancho columna 1, las otras ya quedan bien por defecto */
+        sheet.setColumnWidth((short) 0, (short) 7000);
+        sheet.setColumnWidth((short) 1, (short) 7000);
+        sheet.setColumnWidth((short) 2, (short) 7000);
+        sheet.setColumnWidth((short) 3, (short) 7000);
+        sheet.setColumnWidth((short) 4, (short) 7000);
+
+        /* Configuramos  los estilos */
+        HSSFFont bold = workbook.createFont();
+        HSSFFont headerFont = workbook.createFont();;
+        bold.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        HSSFCellStyle styleBold = workbook.createCellStyle();
+        HSSFCellStyle styleHeader = workbook.createCellStyle();
+        HSSFCellStyle filaPar = workbook.createCellStyle();
+        HSSFCellStyle filaImpar = workbook.createCellStyle();
+        styleBold.setFont(bold);
+        headerFont.setColor(HSSFColor.WHITE.index);
+        headerFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        //estilo de la cabecera
+        styleHeader.setFont(headerFont);
+        styleHeader.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        styleHeader.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        styleHeader.setFillForegroundColor(HSSFColor.BLUE.index);
+
+        styleHeader.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        styleHeader.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        styleHeader.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        styleHeader.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+
+        styleHeader.setTopBorderColor(HSSFColor.WHITE.index);
+        styleHeader.setLeftBorderColor(HSSFColor.WHITE.index);
+        styleHeader.setRightBorderColor(HSSFColor.WHITE.index);
+        styleHeader.setBottomBorderColor(HSSFColor.WHITE.index);
+
+        //estilo de las filas pares
+        filaPar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        filaPar.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        filaPar.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
+        //estilo de las filas impares
+        filaImpar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        filaImpar.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        filaImpar.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
+
+        /* Definimos los datos a guardar */
+        Vector<Object[]> data = new Vector<Object[]>();
+
+        data.add( new Object[] {"NOMBRE DEL MIEMBRO",  "ESTADO", "MONTO", "FECHA GENERACION PAGO", "TIPO"} );
+
+        /*Creamos y llenamos listas con datos de la BD que extraemos gracias a los servicios*/
+        List <GastoComun> gcadmin=new ArrayList<GastoComun>();
         //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista gcadmin
         gcadmin.clear();
         List<Pagar> pgadmin=new ArrayList<Pagar>();
@@ -345,65 +348,153 @@ public class GastoComunController extends MultiActionController {
 
         //lleno ambas listas con la lista entregada por cada servicio
         gcadmin=serviceGC.getGastosComunes();
-        pgadmin=serviceP.getPagos(); 
-      //Se obtienen los tipos de gastos comunes
+        pgadmin = serviceP.getPagos();
+        //Se obtienen los tipos de gastos comunes
         List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
-        
-        for(int i=0; i<pgadmin.size();i++) {
-        	String descripcion ="";
-        	for(int j=0; j<gcadmin.size();j++) { 
-        		if(gcadmin.get(j).getFecha().getMonth() == pgadmin.get(i).getFecha().getMonth()) {
-        			for(int k=0; k<tipoGastos.size();k++) {
-        				if(gcadmin.get(j).getDescripcion()==tipoGastos.get(k).getId()) {
-        					descripcion = descripcion + tipoGastos.get(k).getDescripcion();
-        				}
-        				
-        			}
-        		}
-        	}
-        	data.add( new Object[] {pgadmin.get(i).getUsername(),pgadmin.get(i).getEstado(), pgadmin.get(i).getMonto(),pgadmin.get(i).getFecha().toString(),descripcion} );
+
+        for(int i = 0; i<pgadmin.size(); i++) {
+            String descripcion ="";
+            for (int j = 0; j < gcadmin.size(); j++) {
+                if(gcadmin.get(j).getFecha().getMonth() == pgadmin.get(i).getFecha().getMonth()) {
+                    for(int k = 0; k<tipoGastos.size(); k++) {
+                        if(gcadmin.get(j).getDescripcion()==tipoGastos.get(k).getId()) {
+                            descripcion = descripcion + tipoGastos.get(k).getDescripcion();
+                        }
+
+                    }
+                }
+            }
+            data.add( new Object[] {pgadmin.get(i).getUsername(),pgadmin.get(i).getEstado(), pgadmin.get(i).getMonto(),pgadmin.get(i).getFecha().toString(),descripcion} );
         }
-    	
-    	/*data.add( new Object[] {"Pepe Ruvianes",  "010101", "8"} );
-    	data.add( new Object[] {"Juan Loco",  "2576", "7"} );
-    	data.add( new Object[] {"Julia Dos",  "934856", "9"} );*/
-    	 
-    	/* Guardamos los datos en el documento */
-    	int rownum = 0;
-    	for (Object [] objArr : data) {
-    	    HSSFRow row = sheet.createRow(rownum++);
-    	 
-    	    short cellnum = 0;
-    	    for (Object obj : objArr) {
-    	        HSSFCell cell = row.createCell(cellnum++);
-    	        if ( row.getRowNum()==0 ) cell.setCellStyle( styleHeader );
-    	        if ( row.getRowNum()%2==0 && row.getRowNum()!=0) cell.setCellStyle( filaPar );
-    	        if ( row.getRowNum()%2!=0 && row.getRowNum()!=0) cell.setCellStyle( filaImpar );
-    	        if(obj instanceof Date)
-    	            cell.setCellValue((Date)obj);
-    	        else if(obj instanceof Boolean)
-    	            cell.setCellValue((Boolean)obj);
-    	        else if(obj instanceof Double)
-    	            cell.setCellValue((Double)obj);
-    	        else if(obj instanceof Integer)
-    	            cell.setCellValue((Integer)obj);
-    	        else
-    	            cell.setCellValue(""+obj);
-    	        }
-    	    }
-    	 
-    	/* Guardamos el archivo, en este caso lo devolvemos por un servlet */
-    	response.setContentType("application/excel");
-    	response.addHeader("Content-disposition", "inline; filename=" + URLEncoder.encode("Informe_de_gastos_comunes.xls", "UTF-8"));                  
-    	OutputStream os = response.getOutputStream();
-    	                         
-    	workbook.write(os);
-    	             
-    	os.flush();
-    	os.close();        
-        	
-    	
-    	ModelAndView modelAndView=new ModelAndView("indexAdmin");
-    	return modelAndView;
+
+        /* Guardamos los datos en el documento */
+        int rownum = 0;
+        for (Object [] objArr : data) {
+            HSSFRow row = sheet.createRow(rownum++);
+
+            short cellnum = 0;
+            for (Object obj : objArr) {
+                HSSFCell cell = row.createCell(cellnum++);
+                if ( row.getRowNum()==0 ) cell.setCellStyle( styleHeader );
+                if ( row.getRowNum()%2==0 && row.getRowNum()!=0) cell.setCellStyle( filaPar );
+                if ( row.getRowNum()%2!=0 && row.getRowNum()!=0) cell.setCellStyle( filaImpar );
+                if(obj instanceof Date)
+                    cell.setCellValue((Date)obj);
+                else if(obj instanceof Boolean)
+                    cell.setCellValue((Boolean)obj);
+                else if(obj instanceof Double)
+                    cell.setCellValue((Double)obj);
+                else if(obj instanceof Integer)
+                    cell.setCellValue((Integer)obj);
+                else
+                    cell.setCellValue(""+obj);
+            }
+        }
+
+        /* Guardamos el archivo, en este caso lo devolvemos por un servlet */
+        response.setContentType("application/excel");
+        response.addHeader("Content-disposition", "inline; filename=" + URLEncoder.encode("Informe_de_gastos_comunes.xls", "UTF-8"));
+        OutputStream os = response.getOutputStream();
+
+        workbook.write(os);
+
+        os.flush();
+        os.close();
+
+
+        ModelAndView modelAndView=new ModelAndView("indexAdmin");
+        return modelAndView;
+    }
+
+    public ModelAndView ExportarPDF(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        response.setContentType("application/pdf");
+        OutputStream out = response.getOutputStream();
+
+        /*Creamos y llenamos listas con datos de la BD que extraemos gracias a los servicios*/
+        List<GastoComun> gcadmin = new ArrayList<GastoComun>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista gcadmin
+        gcadmin.clear();
+        List<Pagar> pgadmin = new ArrayList<Pagar>();
+        //Limpio la lista para que si salgo de la pantalla "Visualizar cuenta de gasto com�n" y luego vuelvo a entrar, no se dupliquen los datos de la lista pgadmin
+        pgadmin.clear();
+
+        //lleno ambas listas con la lista entregada por cada servicio
+        gcadmin = serviceGC.getGastosComunes();
+        pgadmin = serviceP.getPagos();
+        //Se obtienen los tipos de gastos comunes
+        List<TipoGasto> tipoGastos = serviceTG.getTiposGastos();
+
+        String documento = "";
+        Integer numColumns = 5;
+
+        // We create the table (Creamos la tabla).
+        PdfPTable table = new PdfPTable(numColumns);
+        // Now we fill the PDF table
+        // Ahora llenamos la tabla del PDF
+        PdfPCell columnHeader;
+        // Fill table rows (rellenamos las filas de la tabla).
+
+        columnHeader = new PdfPCell(new Phrase("USUARIO "));
+        columnHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(columnHeader);
+
+        columnHeader = new PdfPCell(new Phrase("ESTADO "));
+        columnHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(columnHeader);
+
+        columnHeader = new PdfPCell(new Phrase("MONTO "));
+        columnHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(columnHeader);
+
+        columnHeader = new PdfPCell(new Phrase("FECHA "));
+        columnHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(columnHeader);
+
+        columnHeader = new PdfPCell(new Phrase("DESCRIPCION "));
+        columnHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(columnHeader);
+
+        table.setHeaderRows(1);
+
+        try {
+            Document document = new Document();
+            /* Basic PDF Creation inside servlet */
+            PdfWriter.getInstance(document, out);
+            document.open();
+
+            for (Pagar pago : pgadmin) {
+
+                String descripcion = "";
+                for (GastoComun gc : gcadmin) {
+                    if (pago.getFecha().getMonth() == gc.getFecha().getMonth()) {
+                        for (TipoGasto tp : tipoGastos) {
+                            if (gc.getDescripcion() == tp.getId()) {
+                                descripcion = descripcion + " " + tp.getDescripcion();
+                            }
+
+                        }
+                    }
+                }
+                table.addCell(pago.getUsername());
+                table.addCell(pago.getEstado());
+                table.addCell("" + pago.getMonto());
+                table.addCell(pago.getFecha().toString());
+                table.addCell(descripcion);
+            }
+            document.addTitle("ESTADOS DE PAGO");
+            document.add(new Paragraph("ESTADOS DE PAGO"));
+            document.add(new Paragraph("                      "));
+            document.add(new LineSeparator());
+            document.add(new Paragraph("                      "));
+            document.add(table);
+            document.close();
+
+        } catch (DocumentException exc) {
+            throw new IOException(exc.getMessage());
+        } finally {
+            out.close();
+        }
+        ModelAndView modelAndView = new ModelAndView("indexAdmin");
+        return modelAndView;
     }
 }
