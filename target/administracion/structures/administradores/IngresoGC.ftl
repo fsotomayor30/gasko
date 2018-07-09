@@ -41,16 +41,22 @@
                     [#if gc.generado=0]
                         [#assign x = x + gc.monto]
                     [/#if]
-                        [#if gc.generado=1] <td>El Gasto Comun ya esta generado</td>
+                        [#if gc.generado=1]
+                            <td>El Gasto Comun ya está generado</td>
                         [#else]
                         <form action="eliminarGC.xml" method="POST">
-                            <td><input type="hidden" name="id" id="id" value=${gc.id}> <input type="submit" class="btn btn-primary" value="Eliminar"></td>
+                            <td><input type="hidden" name="id" id="id" value=${gc.id}> <input type="submit"
+                                                                                              class="btn btn-primary"
+                                                                                              value="Eliminar"></td>
                         </form>
                         [/#if]
-                    [#if gc.generado=1] <td>El Gasto Comun ya esta generado</td>
+                    [#if gc.generado=1]
+                        <td>El Gasto Comun ya está generado</td>
                     [#else]
                         <form action="modificarGC.xml" method="POST">
-                            <td><input type="hidden" name="id" id="id" value=${gc.id}> <input type="submit" class="btn btn-primary" value="Modificar"></td>
+                            <td><input type="hidden" name="id" id="id" value=${gc.id}> <input type="submit"
+                                                                                              class="btn btn-primary"
+                                                                                              value="Modificar"></td>
                         </form>
                     [/#if]
                     </tr>
@@ -82,7 +88,8 @@
         <div class="col-md-10 offset-md-1">
             <div class="card" style="background: #EAEAEA">
                 <center><h1>Ingreso Gasto Comun</h1></center>
-
+                [#assign aDateTime = .now]
+                [#assign aDate = aDateTime?date]
                 <div class="card-body">
 
                     <div class="form-group row">
@@ -90,7 +97,7 @@
                         <div class="col-12">
                             <span class="oi oi-calendar"></span>
                             <label for="date" class="col-2 col-form-label">Fecha:</label>
-                            <input class="form-control" type="date" value="2018-06-06" id="date" name="date" required>
+                            <input class="form-control" type="date" value=${aDate} id="date" name="date" required>
                         </div>
 
                         <div class="col-12">

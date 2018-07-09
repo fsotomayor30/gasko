@@ -8,44 +8,22 @@
   <component name="ChangeListManager">
     <list default="true" id="bdcf9978-fe89-4726-ae24-a3ea54d8cab6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/InicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/PagarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/PagarService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/InicioController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/administradores/PagoGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/administradores/PagoGC.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/administradores/modificarGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/administradores/modificarGC.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/administracion-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/administracion-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/controladores/InicioController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/WEB-INF/classes/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/IngresoGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/IngresoGC.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/PagoGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/PagoGC.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/VerGCAdmin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/VerGCAdmin.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/administradores/modificarGC.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/administradores/modificarGC.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/administracion/structures/usuarios/pantallaInicioMiembro.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/administracion/structures/usuarios/pantallaInicioMiembro.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/GastoComunController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/controladores/InicioController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/GastoComunService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/usuario/empresa/web/administracion/servicios/PagarService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ibatis-config/maps/gastos_comunes_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ibatis-config/maps/gastos_comunes_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ibatis-config/maps/pagar_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ibatis-config/maps/pagar_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,81 +35,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IngresoGC.ftl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IngresoGC.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="administracion-servlet.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="116" selection-start-line="22" selection-start-column="116" selection-end-line="22" selection-end-column="116" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GastoComunController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="339" column="2" selection-start-line="339" selection-start-column="2" selection-end-line="339" selection-end-column="2" />
+            <state relative-caret-position="102">
+              <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="91" selection-end-column="48" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#GastoComunController#0;class#GastoComunController#0" />
-                <element signature="method#pantallaInicioMiembro#0;class#GastoComunController#0" />
-                <element signature="method#buscarFecha#0;class#GastoComunController#0" />
-                <element signature="method#VerGCAdmin#0;class#GastoComunController#0" />
-                <element signature="method#IngresoGC#0;class#GastoComunController#0" />
-                <element signature="method#ingresoGCE#0;class#GastoComunController#0" />
-                <element signature="method#modificarGC#0;class#GastoComunController#0" />
-                <element signature="method#modificarGCE#0;class#GastoComunController#0" />
-                <element signature="method#ExportarExcel#0;class#GastoComunController#0" />
-                <element signature="method#ExportarPDF#0;class#GastoComunController#0" />
+                <element signature="e#485#512#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gastos_comunes_sql.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml">
+      <file leaf-file-name="VerGCAdmin.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+            <state relative-caret-position="142">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GastoComunService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java">
+      <file leaf-file-name="pantallaInicioMiembro.ftl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PagoGC.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/PagoGC.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modificarGC.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/modificarGC.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
+            <state relative-caret-position="510">
+              <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -198,14 +127,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/PagarService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/pagar_sql.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/InicioController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/structures/administradores/modificarGC.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl" />
       </list>
     </option>
   </component>
@@ -275,9 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,6 +341,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -649,7 +578,8 @@
       <workItem from="1530040991616" duration="1858000" />
       <workItem from="1530124387189" duration="1874000" />
       <workItem from="1530131540874" duration="8882000" />
-      <workItem from="1531070253621" duration="10257000" />
+      <workItem from="1531070253621" duration="10914000" />
+      <workItem from="1531175679289" duration="844000" />
     </task>
     <task id="LOCAL-00001" summary="[GastoComunController.java] [Modificado]&#10;[Al ingresar gc, se crea con atributo generado 0]&#10;&#10;[PagarController.java] [Modificado]&#10;[Al ingresar un pago, no se agrega el monto dividido, aqui se cuentan la cantidad de usuarios, los divide y los inserta]&#10;&#10;[GastoComun.java] [Modificado]&#10;[Agrego dos atributos id y generado, ademas se agrega el get y set respectivos]&#10;&#10;[Pagar.java] [Modificado]&#10;[Agrego el atributo monto con su respectivo get y set]&#10;&#10;[gastos_comunes_sql.xml] [Modificado]&#10;[agrege los dos atributos id y generado]&#10;&#10;[pagar_sql.xml] [Modificado]&#10;[Agrege los atributos monto]&#10;&#10;[IngregoGC.ftl] [Modificado]&#10;[Agrege la tabla para visualizar los gc del mes actual]&#10;&#10;[VerGCAdmin.ftl] [Modificado]&#10;[modifique la tabla]">
       <created>1529882677151</created>
@@ -679,15 +609,21 @@
       <option name="project" value="LOCAL" />
       <updated>1531038470259</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="&#10;[GastoComunController.java] [Modificado]&#10;[Agrege lineas para la busqueda por fechas]&#10;&#10;[InicioController.java] [Modificado]&#10;[Cuando pase el 20 de cada mes se cambian los pagos a moroso]">
+      <created>1531081237391</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1531081237391</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144667000" />
+    <option name="totallyTimeSpent" value="146168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50907713" side_tool="true" weight="0.2993421" />
@@ -704,13 +640,13 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
-      <window_info active="true" anchor="bottom" id="Java Enterprise" order="9" visible="true" weight="0.32817337" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32817337" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.91611844" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32817337" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49092284" weight="0.37306502" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24583964" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49092284" visible="true" weight="0.37306502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -735,7 +671,8 @@
     <MESSAGE value="[GastoComunController.java] [Modificado]&#10;[modifique para que el usuario normal pueda ver sus gc]&#10;&#10;[pantallaInicioMiembro.ftl] [Modificado]&#10;[Modifique la tabla, para listar los gc]&#10;&#10;[indexAdmin.ftl] [Modificado]&#10;[Agrege un texto mas representativo al boton]&#10;&#10;[indexUser.ftl] [Modificado]&#10;[agrege un icono al boton]" />
     <MESSAGE value="[GastoComunController.java] [Modificado]&#10;[agrege el tipo de gasto comun y los muestra a traves del controlador]&#10;&#10;[InicioController.java] [Modificado]&#10;[Le agerge comentarios]&#10;&#10;[PagarController.java] [Modificado]&#10;[Agrege una tabla para pagar]&#10;&#10;[TipoGasto.java] [Creado]&#10;[agrege un tabla tipo de gc]&#10;&#10;[TipoGastoService.java] [Creado]&#10;[agrege un servicio tipo de gc]&#10;&#10;[tipo_gasto.xml] [Creado]&#10;[agrege consultas de la tabla tipo de gc]" />
     <MESSAGE value="[el botón exportar PDF genera un PDF con los mismos datos de la vista]&#10;&#10;[GastoComunController.java] [Modificado]&#10;[Obtuve los datos del PDF a traves de servicios y luego emule el procedimiento realizado con FreeMarker en VerGCAdmin.ftl, para mostrar los mismos datos que en la vista, además agregue diseño al pdf a través de funciones de la libreria Itext]&#10;&#10;[IngresoGC.ftl] [Modificado]&#10;[Arregle la tabla ya que no generaba los pagos]&#10;&#10;[VerGCAdmin.ftl] [Modificado]&#10;[Modifique el boton exportar PDF]&#10;&#10;[administracion-servlet.xml] [Modificado]&#10;[Agrege el bean &quot;/adminsitradores/ExportarPDF.xml]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[el botón exportar PDF genera un PDF con los mismos datos de la vista]&#10;&#10;[GastoComunController.java] [Modificado]&#10;[Obtuve los datos del PDF a traves de servicios y luego emule el procedimiento realizado con FreeMarker en VerGCAdmin.ftl, para mostrar los mismos datos que en la vista, además agregue diseño al pdf a través de funciones de la libreria Itext]&#10;&#10;[IngresoGC.ftl] [Modificado]&#10;[Arregle la tabla ya que no generaba los pagos]&#10;&#10;[VerGCAdmin.ftl] [Modificado]&#10;[Modifique el boton exportar PDF]&#10;&#10;[administracion-servlet.xml] [Modificado]&#10;[Agrege el bean &quot;/adminsitradores/ExportarPDF.xml]" />
+    <MESSAGE value="&#10;[GastoComunController.java] [Modificado]&#10;[Agrege lineas para la busqueda por fechas]&#10;&#10;[InicioController.java] [Modificado]&#10;[Cuando pase el 20 de cada mes se cambian los pagos a moroso]" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;[GastoComunController.java] [Modificado]&#10;[Agrege lineas para la busqueda por fechas]&#10;&#10;[InicioController.java] [Modificado]&#10;[Cuando pase el 20 de cada mes se cambian los pagos a moroso]" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -927,13 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/entidades/GastoComun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -955,16 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -979,9 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="e#517#518#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1010,9 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="98" column="8" lean-forward="true" selection-start-line="98" selection-start-column="8" selection-end-line="100" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1033,20 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="103" selection-start-line="21" selection-start-column="103" selection-end-line="21" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/InicioController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1056,66 +956,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/administracion-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="116" selection-start-line="22" selection-start-column="116" selection-end-line="22" selection-end-column="116" />
+        <state relative-caret-position="408">
+          <caret line="24" column="116" selection-start-line="24" selection-start-column="116" selection-end-line="24" selection-end-column="116" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/modificarGC.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="306">
           <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/servicios/GastoComunService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="646">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/usuario/empresa/web/administracion/controladores/GastoComunController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="5763">
           <caret line="339" column="2" selection-start-line="339" selection-start-column="2" selection-end-line="339" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GastoComunController#0;class#GastoComunController#0" />
-            <element signature="method#pantallaInicioMiembro#0;class#GastoComunController#0" />
-            <element signature="method#buscarFecha#0;class#GastoComunController#0" />
-            <element signature="method#VerGCAdmin#0;class#GastoComunController#0" />
-            <element signature="method#IngresoGC#0;class#GastoComunController#0" />
-            <element signature="method#ingresoGCE#0;class#GastoComunController#0" />
-            <element signature="method#modificarGC#0;class#GastoComunController#0" />
-            <element signature="method#modificarGCE#0;class#GastoComunController#0" />
-            <element signature="method#ExportarExcel#0;class#GastoComunController#0" />
-            <element signature="method#ExportarPDF#0;class#GastoComunController#0" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/PagoGC.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
+        <state relative-caret-position="799">
           <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ibatis-config/maps/gastos_comunes_sql.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/IngresoGC.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        <state relative-caret-position="102">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="91" selection-end-column="48" />
+          <folding>
+            <element signature="e#485#512#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/administradores/VerGCAdmin.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/structures/usuarios/pantallaInicioMiembro.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
         </state>
       </provider>
     </entry>

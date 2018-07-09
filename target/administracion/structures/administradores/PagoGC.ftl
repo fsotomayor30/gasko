@@ -47,7 +47,9 @@
                     <td>Ya fue pagado este gasto común</td>
                 [#else]
                     <form action="PagoGCE.xml" method="POST">
-                        <td><input type="hidden" name="id" id="id" value=${pago.id_pagar}> <input type="submit" class="btn btn-primary" value="Pagar"></td>
+                        <td><input type="hidden" name="id" id="id" value=${pago.id_pagar}> <input type="submit"
+                                                                                                  class="btn btn-primary"
+                                                                                                  value="Pagar"></td>
                     </form>
                 [/#if]
             </tr>

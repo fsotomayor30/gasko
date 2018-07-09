@@ -26,7 +26,8 @@
                         <div class="col-12">
                             <span class="oi oi-list"></span>
                             <label for="tipo" class="col-2 col-form-label">Tipo:</label>
-                            <textarea class="form-control"  rows="5" readonly id="tipo" name="tipo"  maxlength="50">${tipoGasto}</textarea>
+                            <textarea class="form-control" rows="5" readonly id="tipo" name="tipo"
+                                      maxlength="50">${tipoGasto}</textarea>
                         </div>
                         <div class="col-12">
                             <span class="oi oi-dollar"></span>
@@ -48,7 +49,8 @@
                             <div class="col-12">
                                 <span class="oi oi-list"></span>
                                 <label class="mr-sm-2" for="descripcion">Tipo de Gasto Común</label>
-                                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="descripcionNueva" id="descripcion">
+                                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="descripcionNueva"
+                                        id="descripcion">
                                     <option value="1">Luz</option>
                                     <option value="2">Agua</option>
                                     <option value="3">Gas</option>
