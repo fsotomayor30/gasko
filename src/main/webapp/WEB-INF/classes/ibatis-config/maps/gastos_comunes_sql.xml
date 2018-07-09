@@ -45,7 +45,7 @@
         WHERE ID=#id#;
     </update>
 
-    <delete id="deleteGC" parameterClass="String">
+    <delete id="deleteGC" parameterClass="Integer">
         DELETE FROM gasto_comun
         WHERE ID=#value#;
     </delete>
